@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="U袋网-专业的网上购物商城,销售男装，女装，包包，童装，鞋靴等数千个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!"/> 
+    <meta name="keywords" content="男装，女装，包包，童装，鞋靴，U袋网"/> 
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="css/index-head.css">
+    <link rel="stylesheet" href="css/shangPinXiangQing.css">
+    <script src="js/fdj.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/zoom.js"></script>
+    <title>商品详情页</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+        .footer{position: relative;z-index: 996;background: #fff;}
+        .copy-2 div{margin-bottom: 0;line-height: 33px;}
+        .return a span{font-size: 12px;}
+        /* .imgzz{position: fixed;top: 0;left: 0;;width: 1300px;height: 600px;background-color: rgba(67,67,67,0.4);} */
+        /* .imgzz img{width: 300px;height: 300px;display: block;position: absolute;left: 0;top: 0;bottom: 0;right: 0;margin: auto;z-index: 9992;} */
+    </style>
+</head>
+<body>     
+    <div id="page" v-cloak>
+       <!-- 头部 -->
+            <div class="header">
+                <div class="over">
+                    <div class="over-bg clearfix">
+                        <div class="over-welcome">嗨，欢迎来到<span class="over-red">U袋网</span></div>
+                        <div class="over-left" v-for="item in left">
+                            <a :href="item.url">{{item.text}}</a>
+                        </div>
+                        <div class="over-right" v-for="(item,index) in right">
+                            <a :href="item.url" :class="{'active':index==4}">{{item.text}}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="search">
+                    <h1 class="logo">
+                            U袋网
+                        <a href="index.html"></a>
+                    </h1>
+                    <div class="inp">
+                        <div class="search-inp">
+                            <input type="text"  placeholder="Ta们都在搜U袋网">
+                            <button type="button">
+                                <img src="img/ser.png" alt="">
+                            </button>
+                        </div>
+                        <div class="clearfix search-shop">
+                            <a :href="item.url" class="search-hot" v-for="item in hot">{{item.text}}</a>
+                        </div>
+                    </div>
+                    <a href="gouwuche.html" class="car">
+                        <i class="iconfont icon-shopcart cr fz16"></i>
+                        购物车 {{udai.shopCart|shopCartAdd}} 件
+                    </a>
+                </div>
+            </div>
+        <!-- 导航栏 -->
+            <div class="nav">
+                <div class="all">
+                    <div class="nav-all">
+                        <i class="iconfont icon-menu"></i>
+                        全部分类
+                    </div>
+                    <div class="nav-list" v-for="(item,index) in list">
+                        <a :href="item.url" :class="{'active':index==0}">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>   
+        <!-- 返回顶部 -->
+            <div class="return">
+                <a class="return-a" href="udai_welcome.html"><i class="iconfont icon-user"></i><span class="return-s">用户中心</span></a>
+                <a class="return-a" href="gouwuche.html"><i class="iconfont icon-cart"></i><span class="return-s">购物车</span> <div class="cart-add">{{udai.shopCart|shopCartAdd}}</div> </a>
+                <a class="return-a" href="udai_collection.html"><i class="iconfont icon-aixin"></i><span class="return-s">我的收藏</span></a>
+                <a class="return-a" href=""><i class="iconfont icon-liaotian"></i><span class="return-s">联系客服</span></a>
+                <a class="return-a" href="fankui.html"><i class="iconfont icon-liuyan"></i><span class="return-s">留言反馈</span></a>
+                <a href="" class="return-top"><i class="iconfont icon-top"></i></a>
+            </div>
+               
+        <!-- 主体 -->
+        <div class="main">
+            <!-- 顶部盒子 -->
+            <div class="top clearfix" id="topbox">
+                <div class="top_left fl">
+                    <!-- 面包屑 -->
+                    <ul class="mbx clearfix">
+                        <li class="fl"><a href="index.html">{{shangpin.mbxone}}</a></li>
+                        <li class="fl"><a href="manjian2.html">&gt {{shangpin.mbxtwo}}</a></li>
+                        <li class="fl"><a href="javascript:;">&gt {{shangpin.mbxthe}}</a></li>
+                    </ul>
+                    <!-- 详情选择 -->
+                    <div class="xz clearfix">
+                        <!-- 放大镜 -->
+                        <div class="fl fdj">
+                            <div id="preview">
+                                <div id="img-medium">
+                                    <img src="images/temp/S-001-7_b.jpg" alt="" width="350" height="350" />
+                                    <div id="mark"></div>             
+                                </div>
+                                <!-- 小图导航开始 -->
+                                <div class="img-small">
+                                    <a href="javascript:;" class="left" id="left"></a>
+                                    <a href="javascript:;" class="right" id="right"></a>
+                                    <div class="img-list-items">
+                                        <ul id="img-items">
+                                            <li><img src="images/temp/S-001-7_s.jpg" msrc="images/temp/S-001-7_s.jpg" bsrc="images/temp/S-001-7_b.jpg" alt="" /></li>
+                                            <li><img src="images/temp/S-001-6_s.jpg" msrc="images/temp/S-001-6_s.jpg" bsrc="images/temp/S-001-6_b.jpg" alt="" /></li>
+                                            <li><img src="images/temp/S-001-5_s.jpg" msrc="images/temp/S-001-5_s.jpg" bsrc="images/temp/S-001-5_b.jpg" alt="" /></li>
+                                            <li><img src="images/temp/S-001-4_s.jpg" msrc="images/temp/S-001-4_s.jpg" bsrc="images/temp/S-001-4_b.jpg" alt="" /></li>
+                                            <li><img src="images/temp/S-001-3_s.jpg" msrc="images/temp/S-001-3_s.jpg" bsrc="images/temp/S-001-3_b.jpg" alt="" /></li>
+                                            <li><img src="images/temp/S-001-2_s.jpg" msrc="images/temp/S-001-2_s.jpg" bsrc="images/temp/S-001-2_b.jpg" alt="" /></li>
+                                            <li><img src="images/temp/S-001-1_s.jpg" msrc="images/temp/S-001-1_s.jpg" bsrc="images/temp/S-001-1_b.jpg" alt="" /></li>
+                                            <li><img src="images/temp/S-001-7_s.jpg" msrc="images/temp/S-001-7_s.jpg" bsrc="images/temp/S-001-7_b.jpg" alt="" /></li>
+                                            <li><img src="images/temp/S-001-6_s.jpg" msrc="images/temp/S-001-6_s.jpg" bsrc="images/temp/S-001-6_b.jpg" alt="" /></li>
+                                            <li><img src="images/temp/S-001-5_s.jpg" msrc="images/temp/S-001-5_s.jpg" bsrc="images/temp/S-001-5_b.jpg" alt="" /></li>
+                                            <li><img src="images/temp/S-001-4_s.jpg" msrc="images/temp/S-001-4_s.jpg" bsrc="images/temp/S-001-4_b.jpg" alt="" /></li>
+                                            <li><img src="images/temp/S-001-3_s.jpg" msrc="images/temp/S-001-3_s.jpg" bsrc="images/temp/S-001-3_b.jpg" alt="" /></li>
+                                            <li><img src="images/temp/S-001-2_s.jpg" msrc="images/temp/S-001-2_s.jpg" bsrc="images/temp/S-001-2_b.jpg" alt="" /></li>
+                                            <li><img src="images/temp/S-001-1_s.jpg" msrc="images/temp/S-001-1_s.jpg" bsrc="images/temp/S-001-1_b.jpg" alt="" /></li>
+                                        </ul>   
+                                    </div>
+                                </div>
+                                <!-- 小图导航结束 -->
+                                <div id="img-big">
+                                    <img src="images/temp/S-001-7_b.jpg" alt="" id="detail" />
+                                </div>  
+                            </div> 
+                            <!-- 分享 -->
+                            <ul class="fenshou clearfix">
+                                <li id="sharebtn" class="fl fxiang"><i class="fl fx"></i><a class="fl">分享</a></li> 
+                                <li class="fl scang"><i class="fl sc"></i><a class="fl" href="javascript:;">收藏</a></li> 
+                            </ul>
+                            <!-- 分享框 -->
+                            <div class="fxbox" id="fxbox">
+                                <div class="fxzz"></div>
+                                <div class="cont">
+                                    <div class="clearfix fxtt">
+                                        <span class="fl">爱分享，分享爱</span>
+                                        <span class="fr" id="close"></span>
+                                    </div>
+                                    <div class="txtcont">
+                                        <p class="dec">说说这个商品怎么样(100个字)</p>
+                                        <textarea id="txtpinglun" maxlength="100" class="txtBox" name="" cols="30" rows="10" placeholder="分享给亲们"></textarea>
+                                        <p class="xzpt">选择配图</p>
+                                        <div class="fxswiper">
+                                            <div class="fxswiperbox">
+                                                <ul class="clearfix" id="fxtpxz">
+                                                    <li v-for="(item,index) in shangpin.smallimg" class="fl"><img :src="item" alt="" /><i></i></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <p>分享到</p>
+                                        <div class="zone">
+                                            <section class="share cl mode">
+                                                <div class="bdsharebuttonbox Hui-share">
+                                                    <!-- <span class="share-text Hui-iconfont">&#xe715;</span> -->
+                                                    <a href="#" class="bds_weixin Hui-iconfont" data-cmd="weixin" title="分享到微信"></a>
+                                                    <a href="#" class="bds_qzone Hui-iconfont" data-cmd="qzone" title="分享到QQ空间"></a>	
+                                                    <a href="#" class="bds_sqq Hui-iconfont" data-cmd="sqq" title="分享到QQ好友"></a>
+                                                    <a href="#" class="bds_tsina Hui-iconfont" data-cmd="tsina" title="分享到新浪微博"></a>
+                                                    <a href="#" class="bds_tqq Hui-iconfont" data-cmd="tqq" title="分享到腾讯微博"></a>
+                                                    <a href="#" class="bds_douban Hui-iconfont" data-cmd="douban" title="分享到豆瓣网"></a>
+                                                </div>
+                                            </section>
+                                        </div>
+                                        <input type="button" class="fxbtn" value="分享">
+                                    </div>                                  
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 详情 -->
+                        <div class="fr xiangqing">
+                            <!-- 标题 -->
+                            <p class="title">{{shangpin.title}}</p>
+                            <p class="youhui">{{shangpin.youhui}}</p>
+                            <!-- 售价 -->
+                            <div class="shoujia">
+                                <p><span>售价：</span><a class="bred">￥{{shangpin.price | capitalize}}</a><span class="del">￥{{shangpin.delprice  | capitalize}}</span></p>
+                                <p><span>普通会员购 {{shangpin.putongnum}} 件 ，</span><a class="wantmore" href="">想要更多</a> ?</p>
+                            </div>
+                            <!-- 销量，评论，积分 -->
+                            <ul class="xpj">
+                                <li>销量：<span>{{shangpin.xiaoliang | capitalizew}}</span></li>
+                                <li>评论：<a class="pl" href="#thispl">{{shangpin.pinglun | capitalizew}}</a></li>
+                                <li>积分：<a class="jf" href="">{{shangpin.jifen | capitalizew}}</a></li>
+                            </ul>
+                            <!-- 筛选属性 -->
+                            <div class="shaixuan">
+                                <!-- 颜色 -->
+                                <div class="clearfix shaixuanall">
+                                    <span class="fl">{{shangpin.yanse.des}}：</span>
+                                    <ul class="fl">
+                                        <li :class="{active:shangpin.yanse.num==index}" @click="active(index)" v-for="(value,index) in shangpin.yanse.arr">{{value}}</li>
+                                    </ul>
+                                </div>
+                                <!-- 尺码 -->
+                                <div class="clearfix shaixuanall">
+                                    <span class="fl">{{shangpin.chima.des}}：</span>
+                                    <ul class="fl">
+                                        <li :class="{active:shangpin.chima.num==index}" @click="activeone(index)" v-for="(value,index) in shangpin.chima.arr">{{value}}</li>
+                                    </ul>
+                                </div>
+                                <!-- 待用 -->
+                                <!-- <div class="clearfix shaixuanall">
+                                    <span class="fl">{{shangpin.chima.des}}：</span>
+                                    <ul class="fr">
+                                        <li :class="{active:shangpin.chima.num==index}" @click="activetwo(index)" v-for="(value,index) in shangpin.chima.arr">{{value}}</li>
+                                    </ul>
+                                </div> -->
+                                <!-- 购买模块 -->
+                                <div class="shoujiatwo">
+                                    <div class="clearfix shuliang">
+                                        <span class="fl">数量：</span>
+                                        <input class="numcount fl" v-model="count" :value="count" type="text"  onkeyup="this.value=this.value.replace(/\D/g,0)" onafterpaste="this.value=this.value.replace(/\D/g,0)">
+                                        <div class="fl add">
+                                            <span @click="addc">+</span>
+                                            <span @click="delc">-</span>
+                                        </div>
+                                        <p class="kc fl">库存 <span v-model="shangpin.jiannum">{{shangpin.jiannum | capitalizek}}</span> 件</p>
+                                    </div>
+                                    <!-- 立即购买，购物车 -->
+                                    <ul class="buyall">
+                                        <li><a class="buy" @click="goumai">立即购买</a></li>
+                                       <li> <a class="car" @click="jiaru">加入购物车</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 右侧轮播 -->
+                <div class="top_right fr">
+                    <div class="bktj">{{shangpin.mbxtwo}}</div>
+                    <div class="bktjswiper">
+                        <!-- Swiper -->
+                        <div class="swiper-container" id="noreal">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide" v-for="(item, index) in baokuan" :key="index">
+                                    <img :src="item.src" alt="">
+                                    <div class="zz"></div>
+                                    <p>￥{{item.bkprice | capitalize}}</p>
+                                </div>
+                                
+                            </div>
+                            <!-- Add Pagination -->
+                            <!-- <div class="swiper-pagination"></div> -->
+                            <!-- Add Arrows -->
+                            <div id="top" class="swiper-button-next"></div>
+                            <div id="bottom" class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 底部盒子 -->
+            <div class="bottom_box" id="tabboxone">
+                <!-- 选项卡button -->
+                <ul class="btn clearfix" id="allbtn">
+                    <li class="spxq fl jihuo">商品详情</li>
+                    <li class="ljpj fl" id="thispl">累计评价<span>{{shangpin.pingjia | capitalizep}}</span></li>
+                    <li class="shfw fl">售后服务</li>
+                </ul>
+                <!-- button对应盒子 -->
+                <div class="allbox" id="allboxone">
+                    <!-- 商品详情 -->
+                    <div class="spxq_box tong show clearfix">
+                        <div class="spxq_box_left fl">
+                            <ul class="spxq_box_left_top clearfix">
+                                <li>商品编号：{{shangpin.bianhao}}{{shangpin.mbxtwo}}</li>
+                                <li>上架时间：{{shangpin.shangjiaTime}}</li>
+                                <li>商品毛重：{{shangpin.maozhong}}克</li>
+                                <li>商品库存：{{shangpin.jiannum | capitalizek}}件</li>
+                            </ul>
+                            <div class="allimg" id="lan">
+                                <img v-for="(item, index) in shangpin.imgxiangqing" :key="index" v-lazy="item" alt="">
+                            </div>
+                        </div>
+                        <div class="spxq_box_right fr"></div>
+                    </div>
+                    <!-- 累计评价 -->
+                    <div class="ljpj_box tong" id="tabboxtwo">
+                        <!-- 相关推荐 -->
+                        <div class="xgtj" id="xgtj">
+                            <div class="tt">{{xgtjdesc}}</div>
+                            <ul>
+                                <li v-for="(item, index) in xiangguan">
+                                    <img :src="item.src" alt="">
+                                    <div class="zz"></div>
+                                    <p>￥{{item.bkprice | capitalize}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- button -->
+                        <ul class="ljpj_box_allbtn clearfix" id="allbtntwo">
+                            <li class="jihuo">全部评价<span>{{shangpin.pingjia | capitalizep}}</span></li>
+                            <li class="">好评<span>{{shangpin.goodpingjia | capitalizep}}</span></li>
+                            <li class="">中评<span>{{shangpin.midpingjia | capitalizep}}</span></li>
+                            <li class="">差评<span>{{shangpin.badpingjia | capitalizep}}</span></li>
+                        </ul>
+                        <div class="ljpj_box_allbox" id="allboxtwo">
+                            <div class="show tongt" id="fangda">
+                                <ul>
+                                    <li class="clearfix" v-for="(item,index) in shangpin.qbpj">
+                                        <div class="user fl">
+                                            <img :src="item.userimg" alt="">
+                                            <p>{{item.username | user}}</p>
+                                        </div>
+                                        <div class="fl des">
+                                            <p class="desc">{{item.desc}}</p>
+                                            <div class="clearfix imgxiangqing">
+                                                <img v-for="(item, index) in shangpin.qbpj[index].imgxiangqing" :key="index" class="fl smallimg" :src="item" alt="">
+                                            </div>
+                                            <img src="" alt="" class="bigimg">
+                                            <div class="mask">
+                                                <img src="images/icons/imgclose.png" alt="">
+                                            </div>
+                                            <p class="sxfenlei"><span>{{item.time}}</span>颜色分类：<span>{{item.yansefl}}</span>尺码：<span>{{item.chima}}</span></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <!-- 分页 -->
+                                <div id="demo0"></div>
+                            </div>
+                            <div class="tongt">
+                                <ul>
+                                    <li class="clearfix" v-for="(item,index) in shangpin.hp">
+                                        <div class="user fl">
+                                            <img :src="item.userimg" alt="">
+                                            <p>{{item.username | user}}</p>
+                                        </div>
+                                        <div class="fl des">
+                                            <p class="desc">{{item.desc}}</p>
+                                            <div class="clearfix imgxiangqing">
+                                                <img v-for="(item, index) in shangpin.hp[index].imgxiangqing" :key="index" class="fl smallimg" :src="item" alt="">
+                                            </div>
+                                            <img src="" alt="" class="bigimg">
+                                            <div class="mask">
+                                                <img src="images/icons/imgclose.png" alt="">
+                                            </div>
+                                            <p class="sxfenlei"><span>{{item.time}}</span>颜色分类：<span>{{item.yansefl}}</span>尺码：<span>{{item.chima}}</span></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <!-- 分页1 -->
+                                <div id="demo1"></div>
+                            </div>
+                            <div class="tongt">
+                                <ul>
+                                    <li class="clearfix" v-for="(item,index) in shangpin.zp">
+                                        <div class="user fl">
+                                            <img :src="item.userimg" alt="">
+                                            <p>{{item.username | user}}</p>
+                                        </div>
+                                        <div class="fl des">
+                                            <p class="desc">{{item.desc}}</p>
+                                            <div class="clearfix imgxiangqing">
+                                                <img v-for="(item, index) in shangpin.zp[index].imgxiangqing" :key="index" class="fl smallimg" :src="item" alt="">
+                                            </div>
+                                            <img src="" alt="" class="bigimg">
+                                            <div class="mask">
+                                                <img src="images/icons/imgclose.png" alt="">
+                                            </div>
+                                            <p class="sxfenlei"><span>{{item.time}}</span>颜色分类：<span>{{item.yansefl}}</span>尺码：<span>{{item.chima}}</span></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <!-- 分页2 -->
+                                <div id="demo2"></div>
+                            </div>
+                            <div class="tongt">
+                                <ul>
+                                    <li class="clearfix" v-for="(item,index) in shangpin.cp">
+                                        <div class="user fl">
+                                            <img :src="item.userimg" alt="">
+                                            <p>{{item.username | user}}</p>
+                                        </div>
+                                        <div class="fl des">
+                                            <p class="desc">{{item.desc}}</p>
+                                            <div class="clearfix imgxiangqing">
+                                                <img v-for="(item, index) in shangpin.cp[index].imgxiangqing" :key="index" class="fl smallimg" :src="item" alt="">
+                                            </div>
+                                            <img src="" alt="" class="bigimg">
+                                            <div class="mask">
+                                                <img src="images/icons/imgclose.png" alt="">
+                                            </div>
+                                            <p class="sxfenlei"><span>{{item.time}}</span>颜色分类：<span>{{item.yansefl}}</span>尺码：<span>{{item.chima}}</span></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <!-- 分页3 -->
+                                <div id="demo3"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 售后服务 -->
+                    <div class="shfw_box tong">
+                        <p>承蒙惠购 AOC 产品，谨致谢意！为了让您更好地使用本产品，武汉艾德蒙科技股份有限公司通过该产品随机附带的保修证向您做出下述维修服务承诺，并按照该服务的承诺向您提供维修服务。
+                                这些服务承诺仅适用于2016年6月1日（含）之后销售的AOC品牌显示器标准品。
+                                
+                                如果您选择购买了 AOC 显示器扩展功能模块或其它厂家电脑主机，其保修承诺请参见相应产品的保修卡。
+                                
+                                所有承诺内容以产品附件的保修卡为准。</p>
+                        <p>承蒙惠购 AOC 产品，谨致谢意！为了让您更好地使用本产品，武汉艾德蒙科技股份有限公司通过该产品随机附带的保修证向您做出下述维修服务承诺，并按照该服务的承诺向您提供维修服务。
+                                这些服务承诺仅适用于2016年6月1日（含）之后销售的AOC品牌显示器标准品。
+                                
+                                如果您选择购买了 AOC 显示器扩展功能模块或其它厂家电脑主机，其保修承诺请参见相应产品的保修卡。
+                                
+                                所有承诺内容以产品附件的保修卡为准。</p>
+                         <!-- 最近浏览 -->
+                         <div class="zjll" id="zjll">
+                            <div class="tt">{{zjlldesc}}</div>
+                            <ul>
+                                <li v-for="(item, index) in zuijinliulan">
+                                    <img :src="item.src" alt="">
+                                    <div class="zz"></div>
+                                    <p>￥ {{item.bkprice}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+           
+            </style>
+            <!-- 底部轮播 -->
+            <div class="bottomtwo">
+                <div class="bktjtwo">{{shangpin.mbxtwo}}</div>
+                <div class="bktjswipertwo">
+                    <!-- Swiper -->
+                    <div class="swiper-container" id="footerswiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" v-for="(item, index) in baokuan" :key="index">
+                                <img :src="item.src" alt="">
+                                <div class="zz"></div>
+                                <p>￥{{item.bkprice | capitalize }}</p>
+                            </div>
+                            
+                        </div>
+                        <!-- Add Pagination -->
+                        <!-- <div class="swiper-pagination"></div> -->
+                        <!-- Add Arrows -->
+                        <!-- <div id="ftop" class="swiper-button-next"></div> -->
+                        <!-- <div id="fbottom" class="swiper-button-prev"></div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- 隐藏遮罩
+            <div class="yczz">
+
+            </div> -->
+        </div>
+           <!-- 底部 -->
+    <div class="footer">
+        <div class="tags">
+            <div class="tags-img">
+                <div><img src="img/footer_1.gif"></div>
+                <div><img src="img/footer_2.gif"></div>
+                <div><img src="img/footer_3.gif"></div>
+                <div><img src="img/footer_4.gif"></div>
+            </div>
+        </div>
+        <div class="links">
+            <div class="one">
+                <h2>U袋网</h2>
+                <div class="links-one" v-for="item in one">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+            </div>
+            <div class="two">
+                <h2>服务中心</h2>
+                <div class="links-two" v-for="item in two">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+            </div>
+            <div class="three">
+                <h2>新手上路</h2>
+                <div class="links-three" v-for="item in three">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>  
+            </div>
+        </div>
+        <div class="copy">
+            <div class="copy-1" v-for="item in copy">
+                <a :href="item.url">{{item.text}}</a>
+            </div>
+        </div>
+        <div class="copy-2">
+            <div>© 2005-2017 U袋网 版权所有，并保留所有权利</div>
+            <div>ICP备案证书号：闽ICP备16015525号-2    福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室    Tel: 18650406668    E-mail: 18650406668@qq.com</div>
+        </div>
+    </div>
+            <!-- <div class="imgzz" id="imgzz">
+                    <img alt="" src="#">
+            </div> -->
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+<script type="text/javascript" src="layui/layui.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/pagejs/s-spxq.js"></script>

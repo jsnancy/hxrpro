@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="U袋网-专业的网上购物商城,销售男装，女装，包包，童装，鞋靴等数千个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!" />
+    <meta name="keywords" content="男装，女装，包包，童装，鞋靴，U袋网" />
+    <script src="js/vue.js"></script>
+    <script src="./layui/layui.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="icon" href="./img/title.png" type="img/x-ico" />
+    <link rel="stylesheet" href="./css/udai_welcome4.css">
+    <title>U袋网</title>
+</head>
+
+<body>
+    <div id="udai-welcome" class="body" v-cloak>
+        <!-- 头部 -->
+        <div class="header">
+            <div class="over">
+                <div class="over-bg clearfix">
+                    <div class="over-welcome">嗨，欢迎来到
+                        <span class="over-red">U袋网</span>
+                    </div>
+                    <div class="over-left" v-for="item in left">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                    <div class="over-right" v-for="(item,index) in right">
+                        <a :href="item.url" :class="{'active':index==4}">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search2">
+                <a href="./index.html" class="logo">
+                    <img src="img/icons/logo-news.png">
+                </a>
+                <div class="geren">个人中心</div>
+            </div>
+        </div>
+        <!-- 导航栏 -->
+        <div class="nav" style=" background: #f5f5f5;">
+
+        </div>
+        <!-- 返回顶部 -->
+        <div class="return">
+            <a class="return-a" href="./udai_order.html" style="border-radius: 5px;">
+                <i class="iconfont icon-user"></i>
+                <span class="return-s" style="border-radius: 5px;">用户中心</span>
+            </a>
+            <a class="return-a" href="./gouwuche.html" style="border-radius: 5px;">
+                <i class="iconfont icon-cart"></i>
+                <span class="return-s" style="border-radius: 5px;">购物车</span>
+            </a>
+            <a class="return-a" href="./udai_collection.html" style="border-radius: 5px;">
+                <i class="iconfont icon-aixin"></i>
+                <span class="return-s" style="border-radius: 5px;">我的收藏</span>
+            </a>
+            <a class="return-a" href="" style="border-radius: 5px;">
+                <i class="iconfont icon-liaotian"></i>
+                <span class="return-s" style="border-radius: 5px;">联系客服</span>
+            </a>
+            <a class="return-a" href="./fankui.html" style="border-radius: 5px;">
+                <i class="iconfont icon-liuyan"></i>
+                <span class="return-s" style="border-radius: 5px;">留言反馈</span>
+            </a>
+            <a href="" class="return-top" style="border-radius: 5px;">
+                <i class="iconfont icon-top"></i>
+            </a>
+        </div>
+        <div class="shengzi clearfix">
+            <div class="left fl">
+                <div class="one">
+                    <a href="./udai_welcome.html">
+                        <p>U袋欢迎页</p>
+                    </a>
+                </div>
+                <div class="two">
+                    <p>账户信息</p>
+                    <ul>
+                        <li>
+                            <a href="./udai_welcome2.html" class="xq">个人资料</a>
+                        </li>
+                        <li>
+                            <a href="./udai_welcome3.html" class="xq">积分平台</a>
+                        </li>
+                        <li style="padding-left: 15px;box-sizing: border-box;border-left: 5px solid #b31e22;">
+                            <a href="javascript:;" class="xq xuan">收货地址</a>
+                        </li>
+                        <li>
+                            <a href="./udai_welcome5.html" class="xq">修改登录密码</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>订单中心</p>
+                    <ul>
+                        <li>
+                            <a href="./udai_welcome.html" class="xq">我的订单</a>
+                        </li>
+                        <li>
+                            <a href="./udai_collection.html" class="xq">我的收藏</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">退货/换货</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>服务中心</p>
+                    <ul>
+                        <li>
+                            <a href="./wlcx.html" class="xq">物流查询</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">数据自动下载</a>
+                        </li>
+                        <li>
+                            <a href="./udai_welcome6.html" class="xq">售后服务</a>
+                        </li>
+                        <li>
+                            <a href="./psfw.html" class="xq">配送服务</a>
+                        </li>
+                        <li>
+                            <a href="./yhxy.html" class="xq">用户协议</a>
+                        </li>
+                        <li>
+                            <a href="./cjwt.html" class="xq">常见问题</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>新手上路</p>
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="xq">如何成为代理商</a>
+                        </li>
+                        <li>
+                            <a href="./sales.html" class="xq">代销商上架教程</a>
+                        </li>
+                        <li>
+                            <a href="./distributor.html" class="xq">分销商常见问题</a>
+                        </li>
+                        <li>
+                            <a href="./payment.html" class="xq">付款账户</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>U袋网</p>
+                    <ul>
+                        <li>
+                            <a href="./introduction.html" class="xq">企业简介</a>
+                        </li>
+                        <li>
+                            <a href="./join-U.html" class="xq">加入U袋</a>
+                        </li>
+                        <li>
+                            <a href="./privacy.html" class="xq">隐私说明</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 收货地址 -->
+            <div class="xiang fl">
+                <div class="xiang-ge">
+                    账户信息-收货地址
+                </div>
+                <div style="padding: 12px 0px 45px 0px;box-sizing: border-box;">
+                    <div>
+                        <span class="huo" style="color: #b31e22;padding-right: 20px;box-sizing: border-box;">新增收货地址</span>
+                        <span class="huo">电话号码、手机号码选填一项，其余均为必填项</span>
+                    </div>
+                    <div class="clearfix huo-d">
+                        <div class="fl huo-q">收货人姓名:</div>
+                        <div class="fl huo-w">
+                            <input type="text" placeholder="请输入姓名" class="huo-w-q huo-w-q-w" :class="{kuang:bian==1}" @focus="bian4">
+                        </div>
+                    </div>
+                    <div class="clearfix huo-d">
+                        <div class="fl huo-q" style="height: 60px;">收货地址:</div>
+                        <div class="fl huo-w" style="width: 638px;">
+                            <div class="layui-input-inline">
+                                <select name="quiz1" class=" huo-w-q huo-w-w">
+                                    <option value="">请选择省</option>
+                                    <option value="浙江" selected="">浙江省</option>
+                                    <option value="你的工号">江西省</option>
+                                    <option value="你最喜欢的老师">福建省</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline">
+                                <select name="quiz2" class=" huo-w-q huo-w-w">
+                                    <option value="">请选择市</option>
+                                    <option value="杭州">杭州</option>
+                                    <option value="宁波">宁波</option>
+                                    <option value="温州">温州</option>
+                                    <option value="温州">台州</option>
+                                    <option value="温州">绍兴</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline">
+                                <select name="quiz3" class=" huo-w-q huo-w-w">
+                                    <option value="">请选择县/区</option>
+                                    <option value="西湖区">西湖区</option>
+                                    <option value="余杭区">余杭区</option>
+                                    <option value="拱墅区">临安市</option>
+                                </select>
+                            </div>
+                            <input type="text" placeholder="建议您如实填写详细收货地址，例如街道名称，门牌号码等信息" class="huo-w-q huo-w-q-w" style="width: 576px;" :class="{kuang:bian==4}"
+                                @focus="bian5">
+                        </div>
+                    </div>
+                    <div class="clearfix huo-d">
+                        <div class="fl huo-q">手机号码:</div>
+                        <div class="fl huo-w">
+                            <input type="text" placeholder="请输入手机号码" class="huo-w-q huo-w-q-w" :class="{kuang:bian==2}" @focus="bian2">
+                        </div>
+                    </div>
+                    <div class="clearfix huo-d">
+                        <div class="fl huo-q">电话号码:</div>
+                        <div class="fl huo-w">
+                            <input type="text" placeholder="请输入电话号码" class="huo-w-q huo-w-q-w" :class="{kuang:bian==3}" @focus="bian3">
+                        </div>
+                    </div>
+                    <div class="clearfix huo-d">
+                        <div class="fl huo-q" style="height: 5px;"></div>
+                        <div class="fl huo-w">
+                            <input type="checkbox" placeholder="" id="aaaa" style="vertical-align:middle; margin-top:-2px; margin-bottom:1px;">
+                            <label for="aaaa">设为默认地址</label>
+                        </div>
+                    </div>
+                    <div class="clearfix huo-d">
+                        <div class="fl huo-q" style="height: 5px;"></div>
+                        <div class="fl huo-w">
+                            <div class="huo-r">保存</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer beijing">
+            <div class="tags">
+                <div class="tags-img">
+                    <div>
+                        <img src="./img/footer_1.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_2.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_3.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_4.gif">
+                    </div>
+                </div>
+            </div>
+            <div class="links">
+                <div class="one2">
+                    <h2>U袋网</h2>
+                    <div class="links-one" v-for="item in one">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="two2">
+                    <h2>服务中心</h2>
+                    <div class="links-two" v-for="item in two">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="three">
+                    <h2>新手上路</h2>
+                    <div class="links-three" v-for="item in three">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copy">
+                <div class="copy-1" v-for="item in copy">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+            </div>
+            <div class="copy-2">
+                <div>© 2005-2017 U袋网 版权所有，并保留所有权利</div>
+                <div>ICP备案证书号：闽ICP备16015525号-2 福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室 Tel: 18650406668 E-mail: 18650406668@qq.com</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/pagejs/udai_welcome4.js"></script>

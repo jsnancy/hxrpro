@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="U袋网-专业的网上购物商城,销售男装，女装，包包，童装，鞋靴等数千个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!"/> 
+    <meta name="keywords" content="男装，女装，包包，童装，鞋靴，U袋网"/> 
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
+	<script src="./js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/cart.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./js/layui.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/car.css"/>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/layui.css">
+    <title>U袋网</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+        
+        body {
+            background: #f5f5f5;
+        }
+    </style>
+     <!-- tou -->
+    <style>
+    /* 头部 */
+        .header{
+            margin-bottom: 40px;
+        }
+        .over{
+            background: #f5f5f5;
+        }
+        .con1{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .over-bg{
+            height: 35px;
+            width: 1200px;
+            margin: 0 auto;
+            line-height: 35px;
+        }
+        .over-left,.over-welcome{
+            float: left;
+            display: flex;
+        }
+        .over-right{
+            float: right;
+            display: flex;
+        }
+        .over-welcome,.over-welcome span,.over-left a,.over-right a{
+            font-size: 14px;
+        }
+        .over-left a,.over-right a{
+            margin-left:30px; 
+        }
+        .over-red{
+            color: #b31e22;
+            margin: 0;
+        }
+        .over-left a:hover,.over-right a:hover{
+            color:  #b31e22;
+        }
+        .search{
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            background: #fff;
+        }
+        .logo{
+            width: 224px;
+            height: 80px;
+            margin-right:80px; 
+            margin-bottom: 10px;
+            margin-top: 10px;
+            background: url(./img/icons/logo-news.png) no-repeat;
+            background-size: 224px 80px;
+            text-indent: -999em;
+        }
+        .logo a{
+            width: 224px;
+            height: 80px;
+            display: block;
+            margin-top: -50px;
+        }
+        .inp{
+            width: 600px;
+            margin-top: 24px;
+            padding-left: 24px;
+            box-sizing: border-box;
+            border-left: 1px solid #d3d3d3;
+            line-height: 60px;
+            height: 60px;
+            font-size: 20px;
+        }
+    </style>
+    
+    <!-- 尾部 -->
+    <style>
+        .footer{
+            margin-top: 40px;
+        }
+        .tags{
+            width: 100%;
+            height: 88px;
+            background: #f8f8f8;
+        }
+        .tags-img{
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+        }
+        .tags-img div{
+            width: 300px;
+            border-right: solid 1px #ececec;
+            text-align: center;
+            margin-top: 24px;
+            box-sizing: border-box;
+        }
+        .links{
+            width: 1200px;
+            height: 146px;
+            margin: 0 auto;
+            border-bottom: 1px solid #e0e0e0;
+            box-sizing: border-box;
+            display: flex;
+            padding-top: 25px;
+        }
+        .links h2{
+            font-size: 14px;
+        }
+        .links a{
+            color: #666;
+            font-size: 14px;
+        }
+        .links a:hover,.dibu-1 a:hover{
+            text-decoration: underline;
+        }
+        .links h2{
+            font-weight: bold;
+        }
+        .one1{
+            margin-left: 220px;
+        }
+        .two1{
+            margin-left: 260px;
+        }
+        .three1{
+            margin-left: 260px;
+        }
+        .copy{
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            padding-left: 270px;
+            box-sizing: border-box;
+        }
+        .copy-1{
+            height: 50px;
+            padding: 20px 0 10px 60px;
+            box-sizing: border-box;
+        }
+        .copy-1 a{
+            font-size: 14px;
+        }
+        .copy-1 a:hover{
+            text-decoration: underline;
+        }
+        .copy-2{
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+        }
+        .copy-2 div{
+            margin-bottom: 10px;
+        }
+        .active,.nav-list a.active{
+            color: #b31e22
+        }
+        input[type=radio]{vertical-align: middle;}
+    </style>
+    <style>
+        .gwc{width: 1200px;margin: 0 auto;background: #fff;padding: 24px;box-sizing: border-box;}
+        .xxje th{background:#fff;text-align: center;color:#000;}
+        .gwc th,.gwc td{border:1px solid #e0e0e0;}
+        #cd{padding-left: 10px;box-sizing: border-box !important;}
+        .redcolor{text-align: center;overflow: hidden;}
+        .tab{margin-bottom: 30px;}
+        #gwc th,#gwc td{font-size: 16px;}
+        .num button{width: 26px;height: 26px;border: 1px solid #e0e0e0;box-sizing: border-box;text-align: center;line-height: 26px;background:#fff;}
+        .look{font-size: 16px;line-height: 20px;font-weight: normal;}
+        .look:hover{cursor: pointer;}
+        .look span{font-size: 16px;}
+        .look input{margin-right: 10px;}
+        .zjjg,.zjjg span{font-size: 16px;}
+        #fot{background:#fff;border: 1px solid #e0e0e0;}
+        .nel{line-height: 40px;margin-right: 15px;font-size: 16px;}
+        a:hover{text-decoration: none;}
+        td{overflow: hidden;}
+    </style>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <!-- 头部 -->
+        <div class="header">
+            <div class="over">
+                <div class="over-bg clearfix">
+                    <div class="over-welcome">嗨，欢迎来到<span class="over-red">U袋网</span></div>
+                    <div class="over-left" v-for="item in left">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                    <div class="over-right" v-for="(item,index) in right" >
+                        <a :href="item.url" :class="{'active':index==4}">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search">
+                <div class="con1 clearfix">
+                    <h1 class="logo fl">
+                            U袋网
+                        <a href="index.html"></a>
+                    </h1>
+                    <div class="inp fl">
+                        个人中心
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 购物车 -->
+        <div class="gwc" id="gwc">
+            <h2 class="title">购物车</h2>
+            <table class="tab" width="100%" border="0" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr class="xxje">
+                        <th colspan="2">商品信息</th>
+                        <th style="width: 14%;">商品金额</th>
+                        <th style="width: 14%;">商品数量</th>
+                        <th style="width: 14%;">总金额</th>
+                        <th>编辑</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in productList">
+                        <td style="width: 5%;"><input type="checkbox" :checked="item.check" @click="checkBox(item,index)"/></td>
+                        <td class="goods" id="cd"  style="width: 35%;">
+                            <img :src="item.productImage" class="goods-left"/>
+                            <div class="goods-right">
+                                <p>{{item.productName}}</p>
+                                <p class="tip">颜色分类：<span style="margin-right: 5px;" v-for="part in item.parts" v-text="part.partsName"></span></p>
+                            </div>
+                        </td>
+                        <td style="width: 20%;">{{item.productPrice | formatMoney}}</td>
+                        <td class="num" style="width:10%;">
+                            <button href="javascript:;" @click="changeMoney(item,-1)">-</button>&nbsp;&nbsp;
+                            <input type="text" v-model="item.productQuentity" disabled id="fot"/>&nbsp;&nbsp;
+                            <button href="javascript:;" @click="changeMoney(item,1)">+</button>
+                        </td>
+                        <td class="redcolor" style="width: 20%;">{{item.productPrice*item.productQuentity | formatMoney}}</td>
+                        <td class="del" @click="del(item);" style="width: 10%;">删除</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="qx footer clearfix">
+                
+                <label for="cl" class="fl look clearfix"><input type="checkbox" :checked="checkAllFlag" @click="checkAll" id="cl"/ class="fl"><span class="fl">全选</span></label>
+                <div class="fr zjjg">
+                    总计：<span>{{totalMoney | formatMoney}}</span>元
+                    <button type="button" class="btn">结账</button>
+                </div>
+                <div class="fr nel">选择了{{gsa}}种商品</div>
+            </div>
+        </div>
+    <!-- 底部 -->
+    <div class="footer">
+            <div class="tags">
+                <div class="tags-img">
+                    <div><img src="./img/footer_1.gif"></div>
+                    <div><img src="./img/footer_2.gif"></div>
+                    <div><img src="./img/footer_3.gif"></div>
+                    <div><img src="./img/footer_4.gif"></div>
+                </div>
+            </div>
+            <div class="links">
+                <div class="one1">
+                    <h2>U袋网</h2>
+                    <div class="links-one" v-for="item in one">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="two1">
+                    <h2>服务中心</h2>
+                    <div class="links-two" v-for="item in two">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="three1">
+                    <h2>新手上路</h2>
+                    <div class="links-three" v-for="item in three">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>  
+                </div>
+            </div>
+            <div class="copy">
+                <div class="copy-1" v-for="item in copy">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+            </div>
+            <div class="copy-2">
+                <div>© 2005-2017 U袋网 版权所有，并保留所有权利</div>
+                <div>ICP备案证书号：闽ICP备16015525号-2    福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室    Tel: 18650406668    E-mail: 18650406668@qq.com</div>
+            </div>
+        </div> 
+    </div>
+</body>
+</html>
+<script>
+    Vue.filter('NumFormat', function(value) {
+        // if(!value) return '0.00';
+
+        var intPart = Number(value).toFixed(0); //获取整数部分
+        var intPartFormat = intPart.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,'); //将整数部分逢三一断
+
+        var floatPart = ".00"; //预定义小数部分
+        var value2Array = value.split(".");
+
+        //=2表示数据有小数位
+        if(value2Array.length == 2) {
+            floatPart = value2Array[1].toString(); //拿到小数部分
+
+            if(floatPart.length == 1) { //补0,实际上用不着
+                return intPartFormat + "." + floatPart + '0';
+            } else {
+                return intPartFormat + "." + floatPart;
+            }
+
+        } else {
+            return intPartFormat + floatPart;
+        }
+
+    })
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            left:[
+                {url:'#',text:'网站代销'},
+                {url:'#',text:'帮助中心'}
+            ],
+            right:[
+                {url:'#',text:'积分平台'},
+                {url:'#',text:'我的订单'},
+                {url:'#',text:'我的U袋'},
+                {url:'#',text:'注册'},
+                {url:'#',text:'登录'}
+            ],
+            one:[
+                {url:'introduction.html',text:'企业简介'},
+                {url:'join-U.html',text:'加入U袋'},
+                {url:'privacy.html',text:'隐私说明'}
+            ],
+            two:[
+                {url:'udai_welcome6.html',text:'售后服务'},
+                {url:'psfw.html',text:'配送服务'},
+                {url:'yhxy.html',text:'用户协议'},
+                {url:'cjwt.html',text:'常见问题'}
+            ],
+            three:[
+                {url:'agent.html',text:'如何成为代理商'},
+                {url:'sales.html',text:'代销商上架教程'},
+                {url:'distributor.html',text:'分销商常见问题'},
+                {url:'payment.html',text:'付款账户'}
+            ],
+            copy:[
+                {url:'#',text:'网店代销'},
+                {url:'#',text:'U袋学堂'},
+                {url:'#',text:'联系我们'},
+                {url:'introduction.html',text:'企业简介'},
+                {url:'agent.html',text:'新手上路'}
+            ],
+            totalMoney:0,
+            gsa:0,
+            productList:[
+            {
+				"productId":"60001",
+				"productName":"锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款",
+				"productPrice":1231121112312312312312122323234443,
+				"productQuentity":1,
+				"productImage":"img/img1.jpg",
+				"parts":[
+					{
+						"partsId":"10001",
+						"partsName":"深棕色 尺码：均码"
+					},
+					{
+						"partsId":"10002",
+						"partsName":"深棕色 尺码：均码"
+					}
+				]
+			},
+			{
+				"productId":"60002",
+				"productName":"锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款",
+				"productPrice":15,
+				"productQuentity":1,
+				"productImage":"img/img1.jpg",
+				"parts":[
+					{
+						"partsId":"10003",
+						"partsName":"深棕色 尺码：均码"
+					}
+				]
+			},
+            {
+				"productId":"60002",
+				"productName":"锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款",
+				"productPrice":15,
+				"productQuentity":1,
+				"productImage":"img/img1.jpg",
+				"parts":[
+					{
+						"partsId":"10003",
+						"partsName":"深棕色 尺码：均码"
+					}
+				]
+			},
+            {
+				"productId":"60002",
+				"productName":"锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款",
+				"productPrice":15,
+				"productQuentity":1,
+				"productImage":"img/img1.jpg",
+				"parts":[
+					{
+						"partsId":"10003",
+						"partsName":"深棕色 尺码：均码"
+					}
+				]
+			}
+		],
+		checkAllFlag:false
+        },
+        filters:{
+		formatMoney: function (value) {
+            var intPart = Number(value).toFixed(0); //获取整数部分
+            var intPartFormat = intPart.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,'); //将整数部分逢三一断
+
+            var floatPart = ".00"; //预定义小数部分
+            var value2Array = value;
+
+            //=2表示数据有小数位
+            if(value2Array.length == 2) {
+                floatPart = value2Array[1].toString(); //拿到小数部分
+
+                if(floatPart.length == 1) { //补0,实际上用不着
+                    return intPartFormat + "." + floatPart + '0';
+                } else {
+                    return intPartFormat + "." + floatPart;
+                }
+
+            } else {
+                return '￥'+intPartFormat + floatPart;
+            }
+		}
+	},
+	mounted:function(){
+		// this.cartView();
+	},
+	methods:{
+		cartView:function () {
+			// var _this=this;
+			// //获取商品数据信息
+			// this.$http.get("data/cartData.json").then(function (res) {
+			// 	_this.productList = res.body.result.list;
+				
+			// })
+		},
+		//点击增加或减少商品数量按钮后修改对应金额
+		changeMoney:function (product,way) {
+			if (way>0) {
+				product.productQuentity++;
+			}else{
+				product.productQuentity--;
+				if (product.productQuentity<1) {
+					product.productQuentity=1;
+				}
+			}
+			this.getTotalMoney();
+		},
+		//单选框设置
+		checkBox:function (item,index){
+			var _this=this;
+			var num=0;
+			if (typeof item.check == "undefined") {
+                this.$set(item,"check",true);
+                // console.log(1)
+                vm.gsa++;
+			}else{
+                item.check = !item.check;
+                this.$set(item,"check",undefined);
+                // console.log(2)
+                vm.gsa--;
+			}
+			this.productList.forEach(function (item,value) {
+				if (item.check) {
+                    num++;
+                    // vm.gsa=index+1;
+				}
+			})
+			if (num==_this.productList.length) {
+				this.checkAllFlag=true;
+			}else{
+				this.checkAllFlag=false;
+			}
+			this.getTotalMoney();
+		},
+		//全选按钮设置
+		checkAll:function (index){
+			var _this=this;
+			this.checkAllFlag = !this.checkAllFlag;
+			this.productList.forEach(function(item,index){
+				if (typeof item.check == "undefined") {
+                    _this.$set(item,"check",_this.checkAllFlag);
+                    // console.log(1)
+                    vm.gsa=vm.productList.length
+				}else{
+                    item.check = _this.checkAllFlag;
+                    _this.$set(item,"check",undefined);
+                    // console.log(2)
+                    vm.gsa=0;
+				}
+			})
+			this.getTotalMoney();
+		},
+		//总金额设置
+		getTotalMoney:function () {
+			var _this=this;
+			this.totalMoney = 0;
+			this.productList.forEach(function (item,index) {
+				if (item.check) {
+                    _this.totalMoney += item.productQuentity*item.productPrice;
+				}
+			})
+		},
+		//删除商品
+		del: function (item) {
+			var index=this.productList.indexOf(item);
+			this.productList.splice(index,1);
+            this.getTotalMoney();
+            vm.gsa=this.productList.length;
+            // this.checkAll();
+            // this.checkBox();
+            // this.changeMoney();
+		}
+	}
+    })
+    $('')
+</script>

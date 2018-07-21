@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="U袋网-专业的网上购物商城,销售男装，女装，包包，童装，鞋靴等数千个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!"/> 
+    <meta name="keywords" content="男装，女装，包包，童装，鞋靴，U袋网"/> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="./js/vue.js"></script>
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script src="./js/payPwd.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="./js/layui.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="./css/layui.css">
+    <link rel="stylesheet" href="./css/udreceipted.css">
+    <title>U袋网</title>
+    
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <!-- 头部 -->
+        <div class="header">
+            <div class="over">
+                <div class="over-bg clearfix">
+                    <div class="over-welcome">嗨，欢迎来到<span class="over-red">U袋网</span></div>
+                    <div class="over-left" v-for="item in left">
+                        <a :href="item.url" class="txe">{{item.text}}</a>
+                    </div>
+                    <div class="over-right" v-for="(item,index) in right" >
+                        <a :href="item.url" :class="{'active':index==4}" class="txe">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search">
+                <div class="con1 clearfix">
+                    <h1 class="logo fl">
+                            U袋网
+                        <a href="index.html"></a>
+                    </h1>
+                    <div class="inp fl">
+                        个人中心
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="udai-welcome" class="clearfix body" v-cloak>
+            <div class="left fl">
+                <div class="one">
+                    <a href="./udai_welcome.html" style="text-decoration: none;">
+                        <p>U袋欢迎页</p>
+                    </a>
+                </div>
+                <div class="two">
+                    <p>账户信息</p>
+                    <ul>
+                        <li>
+                                <a href="udai_welcome2.html" class="xq xuan">个人资料</a>
+                            </li>
+                            <li>
+                                <a href="./udai_welcome3.html" class="xq">积分平台</a>
+                            </li>
+                            <li>
+                                <a href="./udai_welcome4.html" class="xq">收货地址</a>
+                            </li>
+                            <li>
+                                <a href="./udai_welcome5.html" class="xq">修改登录密码</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>订单中心</p>
+                    <ul>
+                        <li class="color-b">
+                            <a href="./udai_order.html" class="xq color-a">我的订单</a>
+                        </li>
+                        <li>
+                            <a href="*" class="xq">我的收藏</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">退货/换货</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>服务中心</p>
+                    <ul>
+                        <li>
+                                <a href="wlcx.html" class="xq">物流查询</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">数据自动下载</a>
+                        </li>
+                        <li>
+                            <a href="./udai_welcome6.html" class="xq">售后服务</a>
+                        </li>
+                        <li>
+                            <a href="psfw.html" class="xq">配送服务</a>
+                        </li>
+                        <li>
+                                <a href="yhxy.html" class="xq">用户协议</a>
+                        </li>
+                        <li>
+                            <a href="cjwt.html" class="xq">常见问题</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>新手上路</p>
+                    <ul>
+                        <li>
+                            <a href="agent.html" class="xq">如何成为代理商</a>
+                        </li>
+                        <li>
+                                <a href="sales.html" class="xq">代销商上架教程</a>
+                        </li>
+                        <li>
+                            <a href="distributor.html" class="xq">分销商常见问题</a>
+                        </li>
+                        <li>
+                                <a href="payment.html" class="xq">付款账户</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>U袋网</p>
+                    <ul>
+                        <li>
+                                <a href="introduction.html" class="xq">企业简介</a>
+                        </li>
+                        <li>
+                            <a href="join-U.html" class="xq">加入U袋</a>
+                        </li>
+                        <li>
+                            <a href="privacy.html" class="xq">隐私说明</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="fl right">
+                    
+                <div class="tit clearfix">
+                    <p class="fl">订单中心 - 确认收货</p>
+                </div>
+                <div class="jdt">
+                        <el-steps :space="800" :active="1" finish-status="success" class="jdt-c">
+                            <el-step title="已完成"></el-step>
+                            <el-step title="进行中"></el-step>
+                            <el-step title="步骤 3"></el-step>
+                            <el-step title="步骤 4"></el-step>
+                        </el-steps>
+                    </div>
+                <div class="ddhm">
+                    <p class="tyfk">我已收到货，同意付款。</p>
+                </div>
+                <div class="ddsp-xq">
+                    <ul class="clearfix ddsp-tit">
+                        <li class="fl lin">商品</li>
+                        <li class="fl lin">状态</li>
+                        <li class="fl lin">数量</li>
+                        <li class="fl lin">单价</li>
+                        <li class="fl lin">优惠</li>
+                        <li class="fl lin">总价</li>
+                        <li class="fl lin">运费</li>
+                    </ul>
+                    <ul class="clearfix ddsp-tit" v-for="(con,index) in sj" :key="index">
+                        <li class="fl borde img-one">
+                            <a class="fl"><img :src="con.img" alt=""></a>
+                            <div class="fl">
+                                <a href="./shangPinXiangQing.html"><p class="display">{{con.tit}}</p></a>
+                                <p>{{con.cfl}}</p>
+                            </div>
+                        </li>
+                        <li class="fl borde cen">
+                            <a class="l-h">待评价</a>
+                        </li>
+                        <li class="fl borde l-h cen">{{con.num}}</li>
+                        <li class="fl borde l-h cen">￥{{con.dj}}</li>                        
+                        <li class="fl borde l-h cen">无</li>
+                        <li class="fl borde l-h cen">￥{{con.zj}}</li>
+                        <li class="fl borde cen l-h">
+                            <p class="dhjz">运费<br><span>￥{{con.yf}}</span></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tr-i">
+                    <p class="acolo">使用优惠券【满￥20.0减￥2.0】优惠￥2.0元</p>
+                    <p class="acolo">快递运费 ￥0.0</p>
+                    <p class="sfk">实付款：<span>¥76.0</span></p>
+                    <p class="acolo bt" class="">（本单可获 380 积分）</p>
+                </div>
+                <div class="last">
+                    <ul>
+                        <li >订单编号：121324165465465465</li>
+                        <li>支付宝交易号：165454564564165164654654</li>
+                        <li>收货地址：福建省 福州市 鼓楼区 温泉街道 温泉街道五四路159号世界金龙大厦20层B北 福州喵喵喵网络，林设计，187***8122</li>
+                        <li>成交时间：2017-09-07 16:03:07</li>
+                    </ul>
+                    <div class="zfmmk">
+                        <p class="jg">◆ 请收到货后，再确认收货！否则我们可能无法为您保障权益！</p>
+                        <div class="clearfix">
+                            <p class="ine fl">支付密码：</p>
+                            <div class="pwd-control" id="payPwd">
+                                <div class="box">
+                                    <div class="flex-1 item"><input maxlength="1" type="tel"></div>
+                                    <div class="flex-1 item"><input maxlength="1" type="tel"></div>
+                                    <div class="flex-1 item"><input maxlength="1" type="tel"></div>
+                                    <div class="flex-1 item"><input maxlength="1" type="tel"></div>
+                                    <div class="flex-1 item"><input maxlength="1" type="tel"></div>
+                                    <div class="flex-1 item"><input maxlength="1" type="tel"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="wj">请输入6位数字支付密码 <a>忘记支付密码？</a></p>
+                        <button>确认已收货</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <div class="footer">
+            <div class="tags">
+                <div class="tags-img">
+                    <div><img src="./img/footer_1.gif"></div>
+                    <div><img src="./img/footer_2.gif"></div>
+                    <div><img src="./img/footer_3.gif"></div>
+                    <div><img src="./img/footer_4.gif"></div>
+                </div>
+            </div>
+            <div class="links">
+                <div class="one1">
+                    <h2>U袋网</h2>
+                    <div class="links-one" v-for="item in one">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="two1">
+                    <h2>服务中心</h2>
+                    <div class="links-two" v-for="item in two">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="three1">
+                    <h2>新手上路</h2>
+                    <div class="links-three" v-for="item in three">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>  
+                </div>
+            </div>
+            <div class="copy">
+                <div class="copy-1" v-for="item in copy">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+            </div>
+            <div class="copy-2">
+                <div>© 2005-2017 U袋网 版权所有，并保留所有权利</div>
+                <div>ICP备案证书号：闽ICP备16015525号-2    福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室    Tel: 18650406668    E-mail: 18650406668@qq.com</div>
+            </div>
+        </div>  
+    </div>
+</body>
+
+</html>
+<script src="./js/pagejs/udreceipted.js"></script>

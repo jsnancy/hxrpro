@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="U袋网-专业的网上购物商城,销售男装，女装，包包，童装，鞋靴等数千个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!"/> 
+    <meta name="keywords" content="男装，女装，包包，童装，鞋靴，U袋网"/> 
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="icon" href="./img/title.png" type="img/x-ico" />
+    <link rel="stylesheet" href="css/login.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login">
+        <!-- 登录头部 -->
+        <h1 class="login-head">
+            <a href="./index.html">
+                <img :src="logo" alt="">
+            </a>
+        </h1>
+        <!-- 登录主体 -->
+        
+            <div class="login-back" v-if="condition">
+                <transition name="fade">
+                <div class="login-back-posi">
+                    <div class="login-inp">
+                        <p class="welcome">欢迎登录花想容平台</p>
+                        <!-- 手机号 -->
+                        <div class="login-phone">
+                            <div class="login-phone-img">
+                                <span class="glyphicon glyphicon-phone login-ico"></span>
+                            </div>
+                            <input type="text" placeholder="手机号" class="login-input" v-model="phone" maxlength="11">
+                        </div>
+                        <!-- 密码 -->
+                        <div class="login-phone">
+                            <div class="login-phone-img">
+                                <span class="glyphicon glyphicon-lock login-ico"></span>
+                            </div>
+                            <input :type="password" placeholder="请输入密码" class="login-input" v-model="pass">
+                            <div class="login-phone-img">
+                                <span :class="{'login-ico':true,'glyphicon glyphicon-eye-open':change,'glyphicon glyphicon-eye-close':!change}"  @click="toggle"></span>
+                            </div>
+                        </div>
+                        <!-- 图片验证 -->
+                        <div class="login-phone">
+                            <input :type="password" placeholder="请输入验证码" class="login-input" v-model="tpyz">
+                            <div class="login-phone-pic">
+                    
+                            </div>
+                        </div>
+                        <!-- 是否自动登录 --> 
+                        <div class="login-day clearfix">
+                            <label for="o" class="fl" style="line-height: 22px;">
+                                <input type="checkbox" id="o"  class="login-cur fl">
+                                30天内免登陆
+                            </label>
+                            <a href="#" class="fr" @click="jumpChange">忘记密码</a>
+                        </div>
+                        <!--显示隐藏 -->
+                        <div class="login-show" :class="{hide:flag}">
+                            <div class="login-text">
+                                <strong>{{msg}}</strong>
+                                <span>{{msgg}}</span>
+                                <button class="button" @click="close">X</button>
+                            </div>
+                        </div>
+                        <!-- 登录按钮 -->
+                        <button class="btnn" @click="login">登录</button>
+                        <!-- 免费注册 -->
+                        <p class="login-zc">没有账号?
+                            <a href="#" style="color: #bf1f24" @click="dianwo">免费注册</a>
+                        </p>
+                    </div>
+                </div>
+            </transition>
+            </div>
+        
+        
+        <!-- *****************************************************注册***************************************************** -->
+        
+            <div class="login-back" v-if="condition1">
+                <transition name="fade1">
+                <div class="login-back-posi">
+                    <div class="login-inp clearfix">
+                        <p class="welcome fl">
+                            欢迎注册
+                            <a href="#" class="fr zc-back" @click="backLogin">返回登录</a>
+                        </p>
+                        <!-- 注册手机号 -->
+                        <div class="login-phone">
+                            <div class="login-phone-img">
+                                <span class="glyphicon glyphicon-phone login-ico"></span>
+                            </div>
+                            <input type="text" placeholder="手机号" class="login-input" v-model="phone1" maxlength="11">
+                        </div>
+                        <!-- 短信验证 -->
+                        <div class="login-dx">
+                            <input type="text" placeholder="请输入验证码" class="yzm" v-model="yzm">
+                            <button class="send" @click="senddd" :disabled="dis">
+                                <span v-if="sendMsgDisabledd">{{timee+'秒后获取'}}</span>
+                                <span v-if="!sendMsgDisabledd">发送短信验证码</span>
+                            </button>
+                        </div>
+                        <!-- 注册密码 -->
+                        <div class="login-phone">
+                            <div class="login-phone-img">
+                                <span class="glyphicon glyphicon-lock login-ico"></span>
+                            </div>
+                            <input :type="password1" placeholder="请输入密码" class="login-input" v-model="pass1">
+                            <div class="login-phone-img">
+                                <span :class="{'login-ico':true,'glyphicon glyphicon-eye-open':change1,'glyphicon glyphicon-eye-close':!change1}" @click="toggle1"></span>
+                            </div>
+                        </div>
+                        <!-- 是否同意 --> 
+                        <div class="login-day clearfix">
+                            <input type="checkbox" id="fo"  class="login-cur fl">
+                            <label for="fo" class="fl" style="line-height: 22px;margin: 0 5px;">同意</label>
+                            <a class="agree" style="line-height: 22px;">U袋网用户协议</a>
+                        </div>
+                        <!--显示隐藏 -->
+                        <div class="login-show" :class="{hide:flag1}">
+                            <div class="login-text">
+                                <strong>{{msg1}}</strong>
+                                <span>{{msgg1}}</span>
+                                <button class="button" @click="close1">X</button>
+                            </div>
+                        </div>
+                        <!-- 登录按钮 -->
+                        <button class="btn1" @click="login1">注册</button>
+                    </div>
+                </div>
+            </transition>
+            </div>
+        
+        <!-- ***************************************************修改密码*************************************************** -->
+        
+            <div class="login-back" v-if="condition2">
+                    <transition name="fade2">
+                <div class="login-back-posi">
+                    <div class="login-inp clearfix">
+                        <p class="welcome fl">
+                            找回密码
+                            <a href="#" class="fr zc-back" @click="backLogin1">返回登录</a>
+                        </p>
+                        <!-- 注册手机号 -->
+                        <div class="login-phone">
+                            <div class="login-phone-img">
+                                <span class="glyphicon glyphicon-phone login-ico"></span>
+                            </div>
+                            <input type="text" placeholder="手机号" class="login-input" v-model="phone2" maxlength="11">
+                        </div>
+                        <!-- 短信验证 -->
+                        <div class="login-dx">
+                            <input type="text" placeholder="请输入验证码" class="yzm">
+                            <button class="send" @click="sendd" :disabled="diss">
+                                <span v-if="sendMsgDisabled">{{time+'秒后获取'}}</span>
+                                <span v-if="!sendMsgDisabled">发送短信验证码</span>
+                            </button>
+                            
+                        </div>
+                        <!-- 注册密码 -->
+                        <div class="login-phone">
+                            <div class="login-phone-img">
+                                <span class="glyphicon glyphicon-lock login-ico"></span>
+                            </div>
+                            <input :type="password2" placeholder="新的密码" class="login-input" v-model="pass2">
+                            <div class="login-phone-img">
+                                <span :class="{'login-ico':true,'glyphicon glyphicon-eye-open':change2,'glyphicon glyphicon-eye-close':!change2}" @click="toggle2"></span>
+                            </div>
+                        </div>
+                        <!--显示隐藏 -->
+                        <div class="login-show" :class="{hide:flag2}">
+                            <div class="login-text">
+                                <strong>{{msg}}</strong>
+                                <span>{{msgg2}}</span>
+                                <button class="button" @click="close2">X</button>
+                            </div>
+                        </div>
+                        <!-- 登录按钮 -->
+                        <button class="btn1" @click="login2">重置密码</button>
+                    </div>
+                </div>
+            </transition>
+            </div>
+            <div class="footer">
+                <div class="footer-foot">
+                    <div class="copy">
+                        <div class="copy-1" v-for="item in copy">
+                            <a :href="item.url">{{item.text}}</a>
+                        </div>
+                    </div>
+                    <div class="copy-2">
+                        <div>© 2005-2017 U袋网 版权所有，并保留所有权利</div>
+                        <div>ICP备案证书号：闽ICP备16015525号-2    福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室    Tel: 18650406668    E-mail: 18650406668@qq.com</div>
+                    </div>
+                </div>
+            </div>  
+        </h1>
+</body>
+</html>
+<script src="./js/vue.js"></script>
+<script src="./js/jquery-1.11.3.min.js"></script>
+<script src="./js/pagejs/wl-login.js"></script>

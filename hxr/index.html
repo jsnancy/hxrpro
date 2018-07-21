@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>花想容</title>  
+    <meta name="description" content="花想容-专业的网上购物商城,销售男装，女装，包包，童装，鞋靴等数千个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!"/> 
+    <meta name="keywords" content="男装，女装，包包，童装，鞋靴，花想容"/> 
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    
+    <script src="js/vue.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="demo" v-cloak>
+<!-- 头部 -->
+    <div class="header" id="udai-top">
+        <div class="over">
+            <div class="over-bg clearfix">
+                <div class="over-welcome">嗨，欢迎来到 <span class="over-red"> 花想容</span></div>
+                <div class="over-left" v-for="item in left">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+                <div class="over-right" v-for="(item,index) in right">
+                    <a :href="item.url" :class="{'active':index==4}">{{item.text}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="search">
+            <h1 class="logo">
+                    花想容
+                <a href=""></a>
+            </h1>
+            <div class="inp">
+                <div class="search-inp">
+                    <input type="text"  placeholder="Ta们都在搜花想容">
+                    <button type="button">
+                        <img src="img/ser.png" alt="">
+					</button>
+                </div>
+                <div class="clearfix search-shop">
+                    <a :href="item.url" class="search-hot" v-for="item in hot">{{item.text}}</a>
+                </div>
+            </div>
+            <a href="gouwuche.html" class="car">
+                <i class="iconfont icon-shopcart cr fz16"></i>
+                购物车 <span>{{udai.shopCart|shopCartAdd}}</span> 件
+            </a>
+        </div>
+    </div>
+<!-- 导航栏 -->
+    <div class="nav">
+        <div class="all">
+            <div class="nav-all">
+                <i class="iconfont icon-menu"></i>
+                全部分类
+<!-- 分类 -->
+            <div class="nav-bottom">
+                <div class="nav-shop" v-for="(item,index) in shop"  @mouseover='show(index)' @mouseout='show1(index)'>
+                    <div class="shop-b" >
+                        <i :class="item.icon"></i>
+                        {{item.val}}
+                    </div>
+                    <div class="shop-s">
+                        <span v-for="shangping in item.sp">{{shangping}}</span>
+                    </div>
+<!-- 更多 -->
+                    <div class="more">
+                        <div v-for="(msg,index) in gdsp" v-show='msg.xs'>
+                             <div class="more-shop" v-for="msg1 in msg.gdsp1">
+                                <div class="more-left">{{msg1.fenlei}}:</div>
+                                <div class="more-right">
+                                    <a :href="moreSp.url" v-for="moreSp in msg1.gengduo">{{moreSp.text}}</a>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+<!-- 个人中心 -->
+                <div class="nav-my">
+                    <div class="nav-bg">
+                        <div class="nav-tx"><img src="img/icons/default_avt.png"></div>
+                        <div class="nav-name">Hi~ <span>{{udai.tel}}</span></div>
+                        <div class="nav-jf">积分: {{udai.jifen|jifenAdd}}</div>
+                        <div class="nav-qd">已签到 {{udai.day|dayAdd}} 天
+                            <div class="nav-add">+30</div>
+                        </div>
+                    </div>
+                    <div class="nav-box">
+                        <div class="nav-agent">
+                            <div>
+                                <i class="iconfont icon-fushi" style="font-size: 22px;"></i>
+                                <p>申请网店代销</p> 
+                            </div>
+                            <div>
+                                <i class="iconfont icon-agent" style="font-size: 22px;"></i>
+                                <p><span style="color: #b31e22;">{{udai.daili|dailiAdd}}</span>位代理商</p>
+                            </div>
+                        </div>
+                        <div class="nav-verify">
+                            <div>
+                                <i class="fake" style="color:#000;"></i>
+                                真假QQ客服验证-远离骗子
+                            </div>
+                            <div>
+                                <input type="text" class="nav-qq" placeholder="输入客服QQ号码">
+                                <button>验证</button>
+                            </div>
+                        </div>
+                        <div class="nav-tags">
+                            <div><i class="iconfont icon-real fz16" style="color:#000;"></i> 品牌正品</div>
+                            <div><i class="iconfont icon-credit fz16" style="color:#000;"></i> 信誉认证</div>
+                            <div><i class="iconfont icon-speed fz16" style="color:#000;"></i> 当天发货</div>
+                            <div><i class="iconfont icon-tick fz16" style="color:#000;"></i> 人工质检</div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+
+            <div class="nav-list" v-for="(item,index) in list">
+                <a :href="item.url" :class="{'active':index==0}">{{item.text}}</a>
+            </div>
+        </div>
+    </div>   
+<!-- 轮播图 -->
+    <div class="banner">
+        <div class="swiper-container banner-box" style="height: 450px;">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" v-for="item in banner">
+                    <a :href="item.url"><img :src="item.img" class="cover"></a>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <div class="content clearfix">
+<!-- 爆款推荐 -->
+        <div class="recommended" id="build-1">
+            <div class="rec-head clearfix">
+                <div>
+                    <i class="iconfont icon-tuijian fz16" style="color: #fff;font-size: 16px;"></i>
+                    爆款推荐
+                </div>
+                <a href=""><i class="iconfont icon-more" style="font-size: 18px;"></i></a>
+            </div>
+            <div class="rec-shop">
+                <a href="manjian2.html" class="rec-left hot-img" >
+                    <img src="img/floor_1.jpg" >
+                </a>
+                <div class="rec-box">
+                    <a :href="item.url" v-for="item in recommended" class="hot-img">
+                        <img :src="item.img">
+                        <div class="rec-box1">
+                            <span>￥{{item.much|muchAdd}}</span>
+                            <span>{{item.val}}</span>
+                        </div>
+                        <div class="rec-box2">{{item.text}}</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+<!-- 平台公告 -->
+        <div class="news">
+            <div class="news-head">
+                <div>
+                    <i class="iconfont icon-horn fz16" style="color: #fff;font-size: 16px;"></i>
+                    平台公告
+                </div>
+                <a href="pingTaiGongGao.html"><i class="iconfont icon-more" style="font-size: 18px;"></i></a>
+            </div>
+
+            <div class="news-content">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                        <a class="swiper-slide ep" v-for="item in slide" :href="item.url" >{{item.text}}</a>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="news-btn clearfix">
+                <a href="wlcx.html" class="news-btn1">
+                    <div>物流查询</div>
+                </a>
+                <a href="manjian2.html" class="news-btn2">
+                    <div>热卖专区</div>
+                </a>
+                <a href="manjian.html" class="news-btn3">
+                    <div>满减专区</div>
+                </a>
+                <a href="manjian3.html" class="news-btn4">
+                    <div>折扣专区</div>
+                </a>
+            </div>
+        </div>
+    </div>
+<!-- 商品 -->
+    <div class="shoping1" id="build-2">
+        <div class="shop-head clearfix shop-head1">
+            <div class="shop-left">
+                    <i class="iconfont icon-skirt fz16" style="color: #fff;font-size: 16px;"></i>
+                女装
+            </div>
+            <div class="shop-right">
+                <a :href="item.url" class="shop-more shop-more1" v-for="item in more">{{item.text}}</a>
+            </div>
+        </div>
+        <div class="shop-content clearfix">
+            <a href="#" class="more-box0 hot-img">
+                <img src="img/floor_2.jpg">
+            </a>
+            <div class="more-box">
+                <a :href="item.url" v-for="item in moreShop1" class="hot-img">
+                    <img :src="item.img">
+                    <div class="more-box1">
+                        <span>￥{{item.much|muchAdd}}</span>
+                        <span>{{item.val}}</span>
+                    </div>
+                    <div class="more-box2">{{item.text}}</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="shoping2" id="build-3">
+        <div class="shop-head clearfix shop-head2">
+            <div class="shop-left">
+                    <i class="iconfont icon-fushi fz16" style="color: #fff;font-size: 16px;"></i>
+                男装
+            </div>
+            <div class="shop-right">
+                <a :href="item.url" class="shop-more shop-more2" v-for="item in more">{{item.text}}</a>
+            </div>
+        </div>
+        <div class="shop-content clearfix">
+            <a href="#" class="more-box0 hot-img">
+                <img src="img/floor_3.jpg">
+            </a>
+            <div class="more-box">
+                <a :href="item.url" v-for="item in moreShop2" class="hot-img">
+                    <img :src="item.img">
+                    <div class="more-box1">
+                        <span>￥{{item.much|muchAdd}}</span>
+                        <span>{{item.val}}</span>
+                    </div>
+                    <div class="more-box2">{{item.text}}</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="shoping3" id="build-4">
+        <div class="shop-head clearfix shop-head3">
+            <div class="shop-left">
+                    <i class="iconfont icon-kid fz16" style="color: #fff;font-size: 16px;"></i>
+                活力童装
+            </div>
+            <div class="shop-right">
+                <a :href="item.url" class="shop-more shop-more3" v-for="item in more">{{item.text}}</a>
+            </div>
+        </div>
+        <div class="shop-content clearfix">
+            <a href="#" class="more-box0 hot-img">
+                <img src="img/floor_4.jpg">
+            </a>
+            <div class="more-box">
+                <a :href="item.url" v-for="item in moreShop3" class="hot-img">
+                    <img :src="item.img">
+                    <div class="more-box1">
+                        <span>￥{{item.much|muchAdd}}</span>
+                        <span>{{item.val}}</span>
+                    </div>
+                    <div class="more-box2">{{item.text}}</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="shoping4" id="build-5">
+        <div class="shop-head clearfix shop-head4">
+            <div class="shop-left">
+                    <i class="iconfont icon-bao fz16" style="color: #fff;font-size: 16px;"></i>
+                时尚包包
+            </div>
+            <div class="shop-right">
+                <a :href="item.url" class="shop-more shop-more4" v-for="item in more">{{item.text}}</a>
+            </div>
+        </div>
+        <div class="shop-content clearfix">
+            <a href="#" class="more-box0 hot-img">
+                <img src="img/floor_5.jpg">
+            </a>
+            <div class="more-box">
+                <a :href="item.url" v-for="item in moreShop4" class="hot-img">
+                    <img :src="item.img">
+                    <div class="more-box1">
+                        <span>￥{{item.much|muchAdd}}</span>
+                        <span>{{item.val}}</span>
+                    </div>
+                    <div class="more-box2">{{item.text}}</div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="shoping5" id="build-6">
+        <div class="shop-head clearfix shop-head5">
+            <div class="shop-left">
+                    <i class="iconfont icon-shoes fz16" style="color: #fff;font-size: 16px;"></i>
+                鞋靴
+            </div>
+            <div class="shop-right">
+                <a :href="item.url" class="shop-more shop-more5" v-for="item in more">{{item.text}}</a>
+            </div>
+        </div>
+        <div class="shop-content clearfix">
+            <a href="#" class="more-box0 hot-img">
+                <img src="img/floor_6.jpg">
+            </a>
+            <div class="more-box">
+                <a :href="item.url" v-for="item in moreShop5" class="hot-img">
+                    <img :src="item.img">
+                    <div class="more-box1">
+                        <span>￥{{item.much|muchAdd}}</span>
+                        <span>{{item.val}}</span>
+                    </div>
+                    <div class="more-box2">{{item.text}}</div>
+                </a>
+            </div>
+        </div>
+    </div>
+<!-- 楼层导航 -->
+    <div class="build">
+        <a href="#build-1" class="build1">爆款推荐</a>
+        <a href="#build-2" class="build2">女装</a>
+        <a href="#build-3" class="build3">男装</a>
+        <a href="#build-4" class="build4">活动童装</a>
+        <a href="#build-5" class="build5">时尚包包</a>
+        <a href="#build-6" class="build6">鞋靴</a>
+    </div>
+<!-- 返回顶部 -->
+    <div class="return">
+        <a class="return-a" href="udai_welcome.html"><i class="iconfont icon-user"></i><span class="return-s">用户中心</span></a>
+        <a class="return-a" href="gouwuche.html"><i class="iconfont icon-cart"></i><span class="return-s">购物车</span> <div class="cart-add">{{udai.shopCart|shopCartAdd}}</div> </a>
+        <a class="return-a" href="udai_collection.html"><i class="iconfont icon-aixin"></i><span class="return-s">我的收藏</span></a>
+        <a class="return-a" href=""><i class="iconfont icon-liaotian"></i><span class="return-s">联系客服</span></a>
+        <a class="return-a" href="fankui.html"><i class="iconfont icon-liuyan"></i><span class="return-s">留言反馈</span></a>
+        <a href="#udai-top" class="return-top"><i class="iconfont icon-top"></i></a>
+    </div>
+<!-- 底部 -->
+    <div class="footer">
+        <div class="tags">
+            <div class="tags-img">
+                <div><img src="img/footer_1.gif"></div>
+                <div><img src="img/footer_2.gif"></div>
+                <div><img src="img/footer_3.gif"></div>
+                <div><img src="img/footer_4.gif"></div>
+            </div>
+        </div>
+        <div class="links">
+            <div class="one">
+                <h2>花想容</h2>
+                <div class="links-one" v-for="item in one">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+            </div>
+            <div class="two">
+                <h2>服务中心</h2>
+                <div class="links-two" v-for="item in two">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+            </div>
+            <div class="three">
+                <h2>新手上路</h2>
+                <div class="links-three" v-for="item in three">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>  
+            </div>
+        </div>
+        <div class="copy">
+            <div class="copy-1" v-for="item in copy">
+                <a :href="item.url">{{item.text}}</a>
+            </div>
+        </div>
+        <div class="copy-2">
+            <div>© 2005-2017 花想容 版权所有，并保留所有权利</div>
+            <div>ICP备案证书号：<a style="font-size: 14px;color: #666;" href="http://www.miitbeian.gov.cn">闽ICP备16015525号-2</a> 福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室    Tel: 18650406668    E-mail: 18650406668@qq.com</div>
+        </div>
+    </div>
+</div>
+    <script src="js/pagejs/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="./js/vue.js"></script>
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script src="./js/layui.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/layui.css">
+    <title>U袋网</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+        
+        body {
+            background: #f5f5f5;
+        }
+
+        #udai-welcome {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .left {
+            width: 230px;
+        }
+
+        .one {
+            width: 100%;
+            height: 42px;
+            background: #fff;
+        }
+
+        .one a p {
+            height: 32px;
+            background: #b31e22;
+            line-height: 32px;
+            padding-left: 20px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .two {
+            width: 100%;
+        }
+
+        .two p {
+            height: 32px;
+            line-height: 32px;
+            padding-left: 20px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .two ul {
+            padding-bottom: 10px;
+            background: #fff;
+        }
+
+        .two ul li {
+            height: 32px;
+            line-height: 32px;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+
+        .xq {
+            font-size: 14px;
+            color: #666;
+            display: block;
+            width: 100%;
+        }
+        .color-b{
+            border-left: 5px solid #b31e22;
+            box-sizing: border-box;
+            padding-left:15px !important;
+        }
+        .color-a{
+            color:#b31e22 !important;            
+        }
+        .two ul li:hover {
+            cursor: pointer;
+            background: #f5f5f5;
+        }
+
+        .two ul a:hover {
+            text-decoration: none;
+            color: #666
+        }
+
+        .left {
+            margin-right: 20px;
+        }
+
+        .right {
+            width: 950px;
+        }
+    </style>
+    <style>
+        .zfpj {
+            height: 100%;
+            padding: 0 24px 0 24px;
+            box-sizing: border-box;
+            border-left: 1px solid #d0d0d0;
+        }
+
+        .zf {
+            width: 90px;
+            height: 80px;
+            text-align: center;
+        }
+
+        .zf:hover {
+            cursor: pointer;
+        }
+
+        .rm {
+            font-size: 40px;
+            color: #b31e60;
+        }
+
+        .zf a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .zf p {
+            color: #666666;
+        }
+
+        .zf p span {
+            color: #b31e60;
+        }
+    </style>
+    <style>
+        .tit {
+            width: 100%;
+            height: 40px;
+            background: #fff;
+            padding: 0 16px 0 16px;
+            box-sizing: border-box;
+        }
+        .tit p {
+            width: 910px;
+            color:#666;
+            line-height: 40px;
+            font-size: 14px;
+            border-bottom: 1px solid #d3d3d3;
+        }
+    </style>
+    <style>
+        .right ul{width: 100%;margin-top: 10px;padding: 0 24px 0 24px;box-sizing: border-box;}
+        .right ul li{width: 224px;height: 340px;padding: 10px;box-sizing: border-box;transition:box-shadow 1s linear;}
+        .img{width: 100%;height: 280px;position: relative;}
+        .img img{width: 100%;height: 100%;}
+        .zz{width: 100%;height: 60px;background: #fff;opacity: 0.7;position: absolute;bottom: 0;}
+        .img p{width: 100%;height: 60px;color:#666;font-size: 14px;position: absolute;bottom: 0;padding: 14px 10px 14px 10px;box-sizing: border-box;}
+        .mar-t{margin-top: 20px;}
+        .ma-jq{color: #b31e22;font-size: 12px;}
+        .ma-jq1{color: #b61b20;font-size: 14px;display: none;transition: display 1s ease;}
+        .ma-jq span{font-size: 14px;}
+        .right ul li:hover{box-shadow: 1px 1px 20px pink;transition:box-shadow 1s linear;}
+        .right ul li:hover .ma-jq1{display: block;}
+        .ma-jq1:hover{text-decoration: underline;cursor: pointer;transition: display 1s ease;}
+        .img:hover{cursor: pointer;}
+        .img:hover p{text-decoration: underline;color: #b31e22}
+    </style>
+    <!-- tou -->
+    <style>
+    /* 头部 */
+        .header{
+            margin-bottom: 40px;
+        }
+        .txe{
+            color:#000;
+        }
+        .txe:hover{
+            text-decoration: none;
+        }
+        .over{
+            background: #f5f5f5;
+        }
+        .con1{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        .over-bg{
+            height: 35px;
+            width: 1200px;
+            margin: 0 auto;
+            line-height: 35px;
+        }
+        .over-left,.over-welcome{
+            float: left;
+            display: flex;
+        }
+        .over-right{
+            float: right;
+            display: flex;
+        }
+        .over-welcome,.over-welcome span,.over-left a,.over-right a{
+            font-size: 14px;
+        }
+        .over-left a,.over-right a{
+            margin-left:30px; 
+        }
+        .over-red{
+            color: #b31e22;
+            margin: 0;
+        }
+        .over-left a:hover,.over-right a:hover{
+            color:  #b31e22;
+        }
+        .search{
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            background: #fff;
+        }
+        .logo{
+            display: block;
+            width: 200px;
+            height: 100px;
+            margin-right:100px; 
+            padding: 10px 0 7px 0;
+            box-sizing: border-box;
+        }
+        .logo img{
+            width: 100%;
+            height: 100%;;
+        }
+        .inp{
+            width: 600px;
+            margin-top: 24px;
+            padding-left: 24px;
+            box-sizing: border-box;
+            border-left: 1px solid #d3d3d3;
+            line-height: 60px;
+            height: 60px;
+            font-size: 20px;
+        }
+    </style>
+    <!-- 返回顶部 -->
+    <style>
+        /* 返回顶部 */
+        .return{
+            width: 35px;
+            height: 240px;
+            position: fixed;
+            bottom: -35px;
+            right: 0;
+            z-index: 999;
+        }
+        .return a{
+            display: block;
+            width: 35px;
+            height: 35px;
+            background: #7a6e6e;
+            margin-bottom: 2px;
+            text-align: center;
+            line-height: 35px;
+            position: relative;
+        }
+        .return a i{
+            font-size: 20px;
+            color: #fff;
+        }
+        .return a span{
+            color: #fff;
+            background: #616161;
+            height: 25px;
+            width: 60px;
+            line-height: 25px;
+            text-align: center;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            right: 40px;
+            display: none;
+            margin-top: 5px;
+        }
+        .return-a:hover .return-s{
+            display: block;
+        }
+        .return a.return-top{ 
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+    <!-- 尾部 -->
+    <style>
+        .footer{
+            margin-top: 40px;
+        }
+        .tags{
+            width: 100%;
+            height: 88px;
+            background: #f8f8f8;
+        }
+        .tags-img{
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+        }
+        .tags-img div{
+            width: 300px;
+            border-right: solid 1px #ececec;
+            text-align: center;
+            margin-top: 24px;
+            box-sizing: border-box;
+        }
+        .links{
+            width: 1200px;
+            height: 146px;
+            margin: 0 auto;
+            border-bottom: 1px solid #e0e0e0;
+            box-sizing: border-box;
+            display: flex;
+            padding-top: 25px;
+        }
+        .links h2{
+            font-size: 14px;
+        }
+        .links a{
+            color: #666;
+            font-size: 14px;
+        }
+        .links a:hover,.dibu-1 a:hover{
+            text-decoration: underline;
+        }
+        .links h2{
+            font-weight: bold;
+        }
+        .one1{
+            margin-left: 220px;
+        }
+        .two1{
+            margin-left: 260px;
+        }
+        .three1{
+            margin-left: 260px;
+        }
+        .copy{
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            padding-left: 270px;
+            box-sizing: border-box;
+        }
+        .copy-1{
+            height: 50px;
+            padding: 20px 0 10px 60px;
+            box-sizing: border-box;
+        }
+        .copy-1 a{
+            font-size: 14px;
+        }
+        .copy-1 a:hover{
+            text-decoration: underline;
+        }
+        .copy-2{
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+        }
+        .copy-2 div{
+            margin-bottom: 10px;
+        }
+        .active,.nav-list a.active{
+            color: #b31e22
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <!-- 头部 -->
+        <div class="header">
+            <div class="over">
+                <div class="over-bg clearfix">
+                    <div class="over-welcome">嗨，欢迎来到<span class="over-red">U袋网</span></div>
+                    <div class="over-left" v-for="item in left">
+                        <a :href="item.url" class="txe">{{item.text}}</a>
+                    </div>
+                    <div class="over-right" v-for="(item,index) in right" >
+                        <a :href="item.url" :class="{'active':index==4}" class="txe">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search">
+                <div class="con1 clearfix">
+                    <a href="index.html" class="logo fl">
+                            <img src="img/icons/logo-news.png">
+                    </a>
+                    <div class="inp fl">
+                        个人中心
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 返回顶部 -->
+        <div class="return">
+            <a class="return-a" href=""><i class="iconfont icon-user"></i><span class="return-s">用户中心</span></a>
+            <a class="return-a" href=""><i class="iconfont icon-cart"></i><span class="return-s">购物车</span></a>
+            <a class="return-a" href=""><i class="iconfont icon-aixin"></i><span class="return-s">我的收藏</span></a>
+            <a class="return-a" href=""><i class="iconfont icon-liaotian"></i><span class="return-s">联系客服</span></a>
+            <a class="return-a" href=""><i class="iconfont icon-liuyan"></i><span class="return-s">留言反馈</span></a>
+            <a href="" class="return-top"><i class="iconfont icon-top"></i></a>
+        </div>
+    <div id="udai-welcome" class="clearfix body" v-cloak>
+        <div class="left fl">
+            <div class="one">
+                <a href="./udai_welcome.html" style="text-decoration: none;">
+                    <p>U袋欢迎页</p>
+                </a>
+            </div>
+            <div class="two">
+                <p>账户信息</p>
+                <ul>
+                    <li>
+                        <a href="./udai_order.html" class="xq">个人资料</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="xq">积分平台</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="xq">收货地址</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="xq">修改登录密码</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="two">
+                <p>订单中心</p>
+                <ul>
+                    <li>
+                        <a href="./udai_order.html" class="xq">我的订单</a>
+                    </li>
+                    <li class="color-b">
+                        <a href="./udai_collection.html" class="xq color-a">我的收藏</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="xq">退货/换货</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="two">
+                <p>服务中心</p>
+                <ul>
+                    <li>
+                            <a href="wlcx.html" class="xq">物流查询</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="xq">数据自动下载</a>
+                    </li>
+                    <li>
+                        <a href="./udai_welcome6.html" class="xq">售后服务</a>
+                    </li>
+                    <li>
+                        <a href="psfw.html" class="xq">配送服务</a>
+                    </li>
+                    <li>
+                        <a href="yhxy.html" class="xq">用户协议</a>
+                    </li>
+                    <li>
+                        <a href="cjwt.html" class="xq">常见问题</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="two">
+                <p>新手上路</p>
+                <ul>
+                    <li>
+                        <a href="agent.html" class="xq">如何成为代理商</a>
+                    </li>
+                    <li>
+                            <a href="sales.html" class="xq">代销商上架教程</a>
+                    </li>
+                    <li>
+                        <a href="distributor.html" class="xq">分销商常见问题</a>
+                    </li>
+                    <li>
+                            <a href="payment.html" class="xq">付款账户</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="two">
+                <p>U袋网</p>
+                <ul>
+                    <li>
+                        <a href="introduction.html" class="xq">企业简介</a>
+                    </li>
+                    <li>
+                        <a href="join-U.html" class="xq">加入U袋</a>
+                    </li>
+                    <li>
+                        <a href="privacy.html" class="xq">隐私说明</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="fl right">
+            <div class="right-two" style="background: #fff;">
+                <div class="tit clearfix">
+                    <p class="fl">订单中心 - 我的收藏</p>
+                </div>
+                <ul class="clearfix">
+                    <li class="fl" v-for="(cont,index) in dist" :key="index">
+                        <div class="img">
+                            <img :src="cont.img" alt="">
+                            <div class="zz">{{cont.tit}}</div>
+                            <p></p>
+                        </div>
+                        <div class="clearfix mar-t">
+                            <span class="fl ma-jq">￥<span>{{cont.jq}}</span></span>
+                            <span class="fr ma-jq1">取消收藏</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <div class="footer">
+            <div class="tags">
+                <div class="tags-img">
+                    <div><img src="./img/footer_1.gif"></div>
+                    <div><img src="./img/footer_2.gif"></div>
+                    <div><img src="./img/footer_3.gif"></div>
+                    <div><img src="./img/footer_4.gif"></div>
+                </div>
+            </div>
+            <div class="links">
+                <div class="one1">
+                    <h2>U袋网</h2>
+                    <div class="links-one" v-for="item in one">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="two1">
+                    <h2>服务中心</h2>
+                    <div class="links-two" v-for="item in two">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="three1">
+                    <h2>新手上路</h2>
+                    <div class="links-three" v-for="item in three">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>  
+                </div>
+            </div>
+            <div class="copy">
+                <div class="copy-1" v-for="item in copy">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+            </div>
+            <div class="copy-2">
+                <div>© 2005-2017 U袋网 版权所有，并保留所有权利</div>
+                <div>ICP备案证书号：闽ICP备16015525号-2    福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室    Tel: 18650406668    E-mail: 18650406668@qq.com</div>
+            </div>
+        </div> 
+    </div>
+</body>
+
+</html>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            dist:[
+                {
+                    img:'./img/temp/M-001.jpg',
+                    tit:'锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    jq:'18.0'
+                },
+                {
+                    img:'./img/temp/M-001.jpg',
+                    tit:'锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    jq:'18.0'
+                },
+                {
+                    img:'./img/temp/M-001.jpg',
+                    tit:'锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    jq:'18.0'
+                },
+                {
+                    img:'./img/temp/M-001.jpg',
+                    tit:'锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    jq:'18.0'
+                },
+                {
+                    img:'./img/temp/M-001.jpg',
+                    tit:'锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    jq:'18.0'
+                },
+                {
+                    img:'./img/temp/M-001.jpg',
+                    tit:'锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    jq:'18.0'
+                },
+                {
+                    img:'./img/temp/M-001.jpg',
+                    tit:'锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    jq:'18.0'
+                },{
+                    img:'./img/temp/M-001.jpg',
+                    tit:'锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    jq:'18.0'
+                }
+                ,{
+                    img:'./img/temp/M-001.jpg',
+                    tit:'锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    jq:'18.0'
+                },
+                {
+                    img:'./img/temp/M-001.jpg',
+                    tit:'锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    jq:'18.0'
+                },
+            ],
+            left:[
+                {url:'#',text:'网站代销'},
+                {url:'#',text:'帮助中心'}
+            ],
+            right:[
+                {url:'#',text:'积分平台'},
+                {url:'#',text:'我的订单'},
+                {url:'#',text:'我的U袋'},
+                {url:'#',text:'注册'},
+                {url:'#',text:'登录'}
+            ],
+            hot:[
+                {url:'#',text:'连衣裙'},
+                {url:'#',text:'衬衫'},
+                {url:'#',text:'裤'},
+                {url:'#',text:'T恤'},
+                {url:'#',text:'女包'},
+                {url:'#',text:'家居服'},
+                {url:'#',text:'2017新款'}
+            ],
+            list:[
+                {url:'#',text:'首页'},
+                {url:'#',text:'企业简介'},
+                {url:'#',text:'新手上路'},
+                {url:'#',text:'U袋学堂'},
+                {url:'#',text:'企业账号'},
+                {url:'#',text:'诚信合约'},
+                {url:'#',text:'实时下架'}
+            ],
+            one:[
+                    {img:'#',text:'企业简介'},
+                    {img:'#',text:'加入U袋'},
+                    {img:'#',text:'隐私说明'}
+                ],
+            two:[
+                {img:'#',text:'售后服务'},
+                {img:'#',text:'配送服务'},
+                {img:'#',text:'用户协议'},
+                {img:'#',text:'常见问题'}
+            ],
+            three:[
+                {img:'#',text:'如何成为代理商'},
+                {img:'#',text:'代销商上架教程'},
+                {img:'#',text:'分销商常见问题'},
+                {img:'#',text:'付款账户'}
+            ],
+            copy:[
+                {url:'#',text:'网店代销'},
+                {url:'#',text:'U袋学堂'},
+                {url:'#',text:'联系我们'},
+                {url:'#',text:'企业简介'},
+                {url:'#',text:'新手上路'}
+            ]
+        },
+        methods: {
+            
+        },
+        mounted:function() {
+            
+        }
+    })
+     // 返回顶部
+     window.onscroll = function(){
+        if($(document).scrollTop()>$(window).height()){
+        $('.return a.return-top').css({'display':'block'})
+        $('.return').css({'bottom':'10px'})
+        }
+        if($(document).scrollTop()==0){
+        $('.return a.return-top').css({'display':'none'})
+        $('.return').css({'bottom':'-35px'})
+        }
+    } 
+</script>

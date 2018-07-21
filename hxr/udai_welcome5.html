@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="U袋网-专业的网上购物商城,销售男装，女装，包包，童装，鞋靴等数千个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!" />
+    <meta name="keywords" content="男装，女装，包包，童装，鞋靴，U袋网" />
+    <script src="js/vue.js"></script>
+    <script src="./layui/layui.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="icon" href="./img/title.png" type="img/x-ico" />
+    <link rel="stylesheet" href="./css/udai_welcome5.css">
+    <title>U袋网</title>
+</head>
+
+<body>
+    <div id="udai-welcome" class="body" v-cloak>
+        <!-- 头部 -->
+        <div class="header">
+            <div class="over">
+                <div class="over-bg clearfix">
+                    <div class="over-welcome">嗨，欢迎来到
+                        <span class="over-red">U袋网</span>
+                    </div>
+                    <div class="over-left" v-for="item in left">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                    <div class="over-right" v-for="(item,index) in right">
+                        <a :href="item.url" :class="{'active':index==4}">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search2">
+                <a href="./index.html" class="logo">
+                    <img src="img/icons/logo-news.png">
+                </a>
+                <div class="geren">个人中心</div>
+            </div>
+        </div>
+        <!-- 导航栏 -->
+        <div class="nav" style=" background: #f5f5f5;">
+
+        </div>
+        <!-- 返回顶部 -->
+        <div class="return">
+            <a class="return-a" href="./udai_order.html" style="border-radius: 5px;">
+                <i class="iconfont icon-user"></i>
+                <span class="return-s">用户中心</span>
+            </a>
+            <a class="return-a" href="./gouwuche.html" style="border-radius: 5px;">
+                <i class="iconfont icon-cart"></i>
+                <span class="return-s">购物车</span>
+            </a>
+            <a class="return-a" href="./udai_collection.html" style="border-radius: 5px;">
+                <i class="iconfont icon-aixin"></i>
+                <span class="return-s">我的收藏</span>
+            </a>
+            <a class="return-a" href="" style="border-radius: 5px;">
+                <i class="iconfont icon-liaotian"></i>
+                <span class="return-s">联系客服</span>
+            </a>
+            <a class="return-a" href="./fankui.html" style="border-radius: 5px;">
+                <i class="iconfont icon-liuyan"></i>
+                <span class="return-s">留言反馈</span>
+            </a>
+            <a href="" class="return-top" style="border-radius: 5px;">
+                <i class="iconfont icon-top"></i>
+            </a>
+        </div>
+        <div class="shengzi clearfix">
+            <div class="left fl">
+                <div class="one">
+                    <a href="./udai_welcome.html">
+                        <p>U袋欢迎页</p>
+                    </a>
+                </div>
+                <div class="two">
+                    <p>账户信息</p>
+                    <ul>
+                        <li>
+                            <a href="./udai_welcome2.html" class="xq">个人资料</a>
+                        </li>
+                        <li>
+                            <a href="./udai_welcome3.html" class="xq">积分平台</a>
+                        </li>
+                        <li>
+                            <a href="./udai_welcome4.html" class="xq">收货地址</a>
+                        </li>
+                        <li style="padding-left: 15px;box-sizing: border-box;border-left: 5px solid #b31e22;">
+                            <a href="javascript:;" class="xq xuan">修改登录密码</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>订单中心</p>
+                    <ul>
+                        <li>
+                            <a href="./udai_welcome.html" class="xq">我的订单</a>
+                        </li>
+                        <li>
+                            <a href="./udai_collection.html" class="xq">我的收藏</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">退货/换货</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>服务中心</p>
+                    <ul>
+                        <li>
+                            <a href="./wlcx.html" class="xq">物流查询</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">数据自动下载</a>
+                        </li>
+                        <li>
+                            <a href="./udai_welcome6.html" class="xq">售后服务</a>
+                        </li>
+                        <li>
+                            <a href="./psfw.html" class="xq">配送服务</a>
+                        </li>
+                        <li>
+                            <a href="./yhxy.html" class="xq">用户协议</a>
+                        </li>
+                        <li>
+                            <a href="./cjwt.html" class="xq">常见问题</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>新手上路</p>
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="xq">如何成为代理商</a>
+                        </li>
+                        <li>
+                            <a href="./sales.html" class="xq">代销商上架教程</a>
+                        </li>
+                        <li>
+                            <a href="./distributor.html" class="xq">分销商常见问题</a>
+                        </li>
+                        <li>
+                            <a href="./payment.html" class="xq">付款账户</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>U袋网</p>
+                    <ul>
+                        <li>
+                            <a href="./introduction.html" class="xq">企业简介</a>
+                        </li>
+                        <li>
+                            <a href="./join-U.html" class="xq">加入U袋</a>
+                        </li>
+                        <li>
+                            <a href="./privacy.html" class="xq">隐私说明</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 修改登录密码 -->
+            <div class="xiang fl">
+                <div class="xiang-ge">
+                    账户信息-修改登录密码
+                </div>
+                <div class="mima" :class="{yin:gai==1}">
+                    <div class="mima-q">
+                        <div class="clearfix">
+                            <div class="mima-q-w fl" @click="xiu">修改支付密码</div>
+                            <div class="mima-q-e fl">忘记支付密码</div>
+                        </div>
+                        <p class="mima-w">
+                            随时都能更改密码，保障您账户的安全
+                        </p>
+                    </div>
+                </div>
+                <!-- 第一步 -->
+                <div class="yin" :class="{xian:gai==1}">
+                    <div class="mima-w">
+                        <div class="mima-w-q">
+                            <div class="mima-w-q">输入旧密码</div>
+                            <div class="clearfix">
+                                <div class="fl mima-w-q-q">
+                                    <div class="fl mima-w-q-q-q jing">
+                                        ✓
+                                    </div>
+                                </div>
+                                <div class="fl mima-w-q-w">
+                                    <div class="mima-w-q-w-q">
+                                        <div class="mima-w-q-w-q-q jing"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mima-w-q">
+                            <div class="mima-w-w">重置登录密码</div>
+                            <div class="clearfix">
+                                <div class="fl mima-w-q-w">
+                                    <div class="mima-w-q-w-q">
+                                        <div class="mima-w-q-w-q-w" :class="{jing:gai2==1}"></div>
+                                    </div>
+                                </div>
+                                <div class="fl mima-w-q-q">
+                                    <div class="fl mima-w-q-q-q" :class="{jing:gai2==1}">
+                                        ✓
+                                    </div>
+                                </div>
+                                <div class="fl mima-w-q-w">
+                                    <div class="mima-w-q-w-q">
+                                        <div class="mima-w-q-w-q-w" :class="{jing:gai2==1}"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mima-w-q">
+                            <div class="mima-w-w-e">完成</div>
+                            <div class="clearfix">
+                                <div class="fl mima-w-q-w">
+                                    <div class="mima-w-q-w-q">
+                                        <div class="mima-w-q-w-q-q" :class="{jing:gai5==1}"></div>
+                                    </div>
+                                </div>
+                                <div class="fl mima-w-q-q">
+                                    <div class="fl mima-w-q-q-q" :class="{jing:gai5==1}">
+                                        ✓
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 第一步 -->
+                <div class="yin" :class="{xian:gai3==1}">
+                    <div class="mima-e">
+                        <div class="mima-e-q" :class="{bianyan:fei==1}"></div>
+                        <div class="mima-e-e" :class="{bianyan2:fei==1}">请输入原密码</div>
+                        <input type="password" class="mima-e-w" @focus="jiao" id="diyi">
+                        <img :src="biyan" alt="" class="mima-e-r" id="yanjing">
+                    </div>
+                    <div class="mima-r">
+                        <div class="mima-r-q" @click="xiu2">提交</div>
+                    </div>
+                </div>
+                <!-- 第二步 -->
+                <div class="yin" :class="{xian:gai4==1}">
+                    <div class="mima-e">
+                        <div class="mima-e-q" :class="{bianyan:fei2==1}"></div>
+                        <div class="mima-e-e" :class="{bianyan2:fei3==1}">新的密码</div>
+                        <input type="password" class="mima-e-w" @focus="jiao2" id="val">
+                        <img :src="biyaner" alt="" class="mima-e-r" id="yanjing2">
+                    </div>
+                    <div class="mima-e">
+                        <div class="mima-e-q" :class="{bianyan:fei4==1}"></div>
+                        <div class="mima-e-e" :class="{bianyan2:fei5==1}">再次确认新的密码</div>
+                        <input type="password" class="mima-e-w" @focus="jiao3" id="vla2">
+                        <img :src="biyansan" alt="" class="mima-e-r" id="yanjing3">
+                    </div>
+                    <div class="mima-r">
+                        <div class="mima-r-q" @click="xiu3">提交</div>
+                    </div>
+                </div>
+                <!-- 第三步 -->
+                <div class="yin mima-t" :class="{xian:gai5==1}">
+                    <div class="mima-t-q">✓</div>
+                    <div class="mima-t-w">登录密码设置成功！</div>
+                    <div class="mima-t-e">
+                        <div class="mima-t-e-q" v-model="miao">{{miao}}秒后跳转至登录页面，如果浏览器未跳转请点击这里</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer beijing">
+            <div class="tags">
+                <div class="tags-img">
+                    <div>
+                        <img src="./img/footer_1.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_2.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_3.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_4.gif">
+                    </div>
+                </div>
+            </div>
+            <div class="links">
+                <div class="one2">
+                    <h2>U袋网</h2>
+                    <div class="links-one" v-for="item in one">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="two2">
+                    <h2>服务中心</h2>
+                    <div class="links-two" v-for="item in two">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="three">
+                    <h2>新手上路</h2>
+                    <div class="links-three" v-for="item in three">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copy">
+                <div class="copy-1" v-for="item in copy">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+            </div>
+            <div class="copy-2">
+                <div>© 2005-2017 U袋网 版权所有，并保留所有权利</div>
+                <div>ICP备案证书号：闽ICP备16015525号-2 福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室 Tel: 18650406668 E-mail: 18650406668@qq.com</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/pagejs/udai_welcome5.js"></script>

@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0;margin:0;font-size:12px;}
+ul,ol,dl{padding:0;margin:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-size:12px;font-weight:normal;}
+i,em{font-style:normal;}
+b,strong{font-weight:normal;}
+a{text-decoration:none;color:#000;}
+.clearfix:after{display:block;content:'';clear:both;}
+.clearfix{zoom:1;}
+.fl{float:left;}
+.fr{float:right;}
+table{border-collapse:collapse;}
+th,td{border:1px solid #000;padding:0;}
+a img{border:none;}
+input,textarea{outline:none;}
+

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="U袋网-专业的网上购物商城,销售男装，女装，包包，童装，鞋靴等数千个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!" />
+    <meta name="keywords" content="男装，女装，包包，童装，鞋靴，U袋网" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <script src="./js/vue.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="css/fankui.css">
+    <link rel="icon" href="./img/title.png" type="img/x-ico" />
+
+</head>
+
+<body>
+    <div id="demo" v-cloak>
+        <!-- 头部 -->
+        <div class="header">
+            <div class="over">
+                <div class="over-bg clearfix">
+                    <div class="over-welcome">嗨，欢迎来到
+                        <span class="over-red">U袋网</span>
+                    </div>
+                    <div class="over-left" v-for="item in left">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                    <div class="over-right" v-for="(item,index) in right">
+                        <a :href="item.url" :class="{'active':index==4}">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search">
+                <a href="./index.html" class="logo">
+                    <img src="img/icons/logo-news.png">
+                </a>
+                <div class="inp">
+                    <div class="search-inp">
+                        <input type="text" placeholder="Ta们都在搜U袋网">
+                        <button type="button">
+                            <img src="./img/ser.png" alt="">
+                        </button>
+                    </div>
+                    <div class="clearfix">
+                        <a :href="item.url" class="search-hot" v-for="item in hot">{{item.text}}</a>
+                    </div>
+                </div>
+                <a href="#" class="car">
+                    <i class="iconfont icon-shopcart cr fz16"></i>
+                    购物车 0 件
+                </a>
+            </div>
+        </div>
+        <!-- 导航栏 -->
+        <div class="nav">
+            <div class="all">
+                <div class="nav-all">
+                    <i class="iconfont icon-menu"></i>
+                    全部分类
+                </div>
+                <div class="nav-list clearfix" v-for="(item,index) in list">
+                    <a :href="item.url" :class="{'active':index==0}">{{item.text}}</a>
+                </div>
+            </div>
+        </div>
+        <!-- 返回顶部 -->
+        <div class="return">
+            <a class="return-a" href="./udai_order.html" style="border-radius: 5px;">
+                <i class="iconfont icon-user"></i>
+                <span class="return-s">用户中心</span>
+            </a>
+            <a class="return-a" href="./gouwuche.html" style="border-radius: 5px;">
+                <i class="iconfont icon-cart"></i>
+                <span class="return-s">购物车</span>
+            </a>
+            <a class="return-a" href="./udai_collection.html" style="border-radius: 5px;">
+                <i class="iconfont icon-aixin"></i>
+                <span class="return-s">我的收藏</span>
+            </a>
+            <a class="return-a" href="" style="border-radius: 5px;">
+                <i class="iconfont icon-liaotian"></i>
+                <span class="return-s">联系客服</span>
+            </a>
+            <a class="return-a" href="./fankui.html" style="border-radius: 5px;">
+                <i class="iconfont icon-liuyan"></i>
+                <span class="return-s">留言反馈</span>
+            </a>
+            <a href="" class="return-top" style="border-radius: 5px;">
+                <i class="iconfont icon-top"></i>
+            </a>
+        </div>
+        <div class="shengti">
+            <div class="yong-q">
+                <div class="yong-q-q">用户反馈调查</div>
+            </div>
+            <div class="yong-w">
+                <div class="yong-w-q">尊敬的用户</div>
+                <div class="yong-w-q">
+                    您好！为了给您提供更好的服务，我们希望收集您使用U袋网的看法或建议，对您的配合和支持表示衷心感谢！
+                </div>
+            </div>
+            <input type="text" placeholder="姓名" class="yong-e" :class="{kuang:bian==1}" @focus="bian4">
+            <input type="text" placeholder="电话号码" class="yong-e" style="margin-left: 30px;" :class="{kuang:bian==2}" @focus="bian2" @blur="shiqu"
+                id="phone">
+            <textarea name="" id="" cols="30" rows="10" class="yong-r" placeholder="输入您的看法或建议" :class="{kuang:bian==3}" @focus="bian3"></textarea>
+            <a href="#">
+                <div class="yong-t">提交</div>
+            </a>
+        </div>
+        <!-- 底部 -->
+        <div class="footer">
+            <div class="tags">
+                <div class="tags-img">
+                    <div>
+                        <img src="./img/footer_1.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_2.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_3.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_4.gif">
+                    </div>
+                </div>
+            </div>
+            <div class="links">
+                <div class="one">
+                    <h2>U袋网</h2>
+                    <div class="links-one" v-for="item in one">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="two">
+                    <h2>服务中心</h2>
+                    <div class="links-two" v-for="item in two">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="three">
+                    <h2>新手上路</h2>
+                    <div class="links-three" v-for="item in three">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copy">
+                <div class="copy-1" v-for="item in copy">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+            </div>
+            <div class="copy-2">
+                <div>© 2005-2017 U袋网 版权所有，并保留所有权利</div>
+                <div>ICP备案证书号：闽ICP备16015525号-2 福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室 Tel: 18650406668 E-mail: 18650406668@qq.com</div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/pagejs/fankui.js"></script>
+</body>
+
+</html>

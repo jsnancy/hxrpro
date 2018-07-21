@@ -1,0 +1,268 @@
+@charset "utf-8";
+/* 头部 */
+.over{
+    background: #f5f5f5;
+}
+.over-bg{
+    height: 35px;
+    width: 1200px;
+    margin: 0 auto;
+    line-height: 35px;
+}
+.over-left,.over-welcome{
+    float: left;
+    display: flex;
+}
+.over-right{
+    float: right;
+    display: flex;
+}
+.over-welcome,.over-welcome span,.over-left a,.over-right a{
+    font-size: 14px;
+}
+.over-left a,.over-right a{
+    margin-left:30px; 
+}
+.over-red{
+    color: #b31e22;
+    margin: 0;
+}
+.over-left a:hover,.over-right a:hover{
+    color:  #b31e22;
+}
+.search{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+}
+.logo{
+    display: block;
+    margin-right:100px; 
+    padding-top: 10px;
+    padding-bottom: 7px;
+    box-sizing: border-box;
+    }
+.logo img{
+    width: 224px;
+    height: 80px;
+}
+.inp{
+    width: 600px;
+    padding-top: 32px;
+    box-sizing: border-box;
+}
+.search-inp{
+    height: 36px;
+    position: relative;
+
+}
+.search-inp input{
+    height: 36px;
+    width: 100%;
+    border: solid 1px #b31e22;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding-left: 5px;
+}
+.search-inp button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 36px;
+    width: 60px;
+    background: #b31e22;
+    border: none;
+    cursor: pointer;
+}
+.search-inp button img{
+    width: 20px;height: 20px;
+}
+.search-hot{
+    margin-top: 5px;
+    font-size: 14px;
+    color: #999;
+    float: left;
+    margin-right: 5px;
+}
+.search-hot:hover{
+    color:  #b31e22;            
+}
+.car{
+    margin-left: 146px;
+    margin-top: 32px;
+    border: solid 1px #ccc;
+    box-sizing: border-box;
+    width: 154px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    color: #999;
+}
+.car{
+    display: block;
+    font-size: 14px;
+}
+.fz16{
+    font-size:14px;
+    color: #b31e22; 
+}
+/* 导航栏 */
+.nav{
+    width: 100%;
+    height: 40px;
+    background: #333;
+}
+.all{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    position: relative;            
+}
+.nav-all{
+    width: 200px;
+    height: 40px;
+    background: #b31e22;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+.nav-list a{
+    float: left;
+    display: block;
+    width: 100px;
+    text-align: center;
+    color: #fff;
+    line-height: 40px;
+}
+.nav-list a:hover{
+    background: #666666;
+}
+/* 返回顶部 */
+.return{
+    width: 35px;
+    height: 240px;
+    position: fixed;
+    bottom: -35px;
+    right: 0;
+    z-index: 9999;
+}
+.return a{
+    display: block;
+    width: 35px;
+    height: 35px;
+    background: #7a6e6e;
+    margin-bottom: 2px;
+    text-align: center;
+    line-height: 35px;
+    position: relative;
+    border-radius: 5px;
+}
+.return a i{
+    font-size: 20px;
+    color: #fff;
+}
+.return a span{
+    color: #fff;
+    background: #616161;
+    height: 25px;
+    width: 60px;
+    line-height: 25px;
+    text-align: center;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 40px;
+    display: none;
+    margin-top: 5px;
+}
+.return-a:hover .return-s{
+    display: block;
+}
+.return a.return-top{ 
+    margin-top: 10px;
+    display: none;
+    transition: ease all 0.7s;
+}
+/* 底部 */
+.footer{
+    margin-top: 40px;
+}
+.tags{
+    width: 100%;
+    height: 88px;
+    background: #f8f8f8;
+}
+.tags-img{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+}
+.tags-img div{
+    width: 300px;
+    border-right: solid 1px #ececec;
+    text-align: center;
+    margin-top: 24px;
+    box-sizing: border-box;
+}
+.links{
+    width: 1200px;
+    height: 146px;
+    margin: 0 auto;
+    border-bottom: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    display: flex;
+    padding-top: 25px;
+}
+.links h2{
+    font-size: 14px;
+}
+.links a{
+    color: #666;
+    font-size: 14px;
+}
+.links a:hover,.dibu-1 a:hover{
+    text-decoration: underline;
+}
+.links h2{
+    font-weight: bold;
+}
+.one{
+    margin-left: 220px;
+}
+.two{
+    margin-left: 260px;
+}
+.three{
+    margin-left: 260px;
+}
+.copy{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    padding-left: 270px;
+    box-sizing: border-box;
+}
+.copy-1{
+    height: 50px;
+    padding: 20px 0 10px 60px;
+    box-sizing: border-box;
+}
+.copy-1 a{
+    font-size: 14px;
+}
+.copy-1 a:hover{
+    text-decoration: underline;
+}
+.copy-2{
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+}
+.copy-2 div{
+    margin-bottom: 10px;
+}
+.active,.nav-list a.active{
+    color: #b31e22
+}

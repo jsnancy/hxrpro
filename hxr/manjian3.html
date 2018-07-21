@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="U袋网-专业的网上购物商城,销售男装，女装，包包，童装，鞋靴等数千个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!" />
+    <meta name="keywords" content="男装，女装，包包，童装，鞋靴，U袋网" />
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./layui/layui.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/manjian3.css">
+    <link rel="icon" href="./img/title.png" type="img/x-ico" />
+    <link rel="stylesheet" href="">
+    <title>折扣专区</title>
+
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="header">
+            <div class="over">
+                <div class="over-bg clearfix">
+                    <div class="over-welcome">嗨，欢迎来到
+                        <span class="over-red">U袋网</span>
+                    </div>
+                    <div class="over-left" v-for="item in left">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                    <div class="over-right" v-for="(item,index) in right">
+                        <a :href="item.url" :class="{'active':index==4}">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search">
+                <a href="./index.html" class="logo">
+                    <img src="img/icons/logo-news.png">
+                </a>
+                <div class="inp">
+                    <div class="search-inp">
+                        <input type="text" placeholder="Ta们都在搜U袋网">
+                        <button type="button">
+                            <img src="./img/ser.png" alt="">
+                        </button>
+                    </div>
+                    <div class="clearfix">
+                        <a :href="item.url" class="search-hot" v-for="item in hot">{{item.text}}</a>
+                    </div>
+                </div>
+                <a href="#" class="car">
+                    <i class="iconfont icon-shopcart cr fz16"></i>
+                    购物车 0 件
+                </a>
+            </div>
+        </div>
+        <!-- 导航栏 -->
+        <div class="nav">
+            <div class="all">
+                <div class="nav-all">
+                    <i class="iconfont icon-menu"></i>
+                    全部分类
+                </div>
+                <div class="nav-list clearfix" v-for="(item,index) in list">
+                    <a :href="item.url" :class="{'active':index==0}">{{item.text}}</a>
+                </div>
+            </div>
+        </div>
+        <!-- 返回顶部 -->
+        <div class="return">
+            <a class="return-a" href="./udai_order.html">
+                <i class="iconfont icon-user"></i>
+                <span class="return-s">用户中心</span>
+            </a>
+            <a class="return-a" href="./gouwuche.html">
+                <i class="iconfont icon-cart"></i>
+                <span class="return-s">购物车</span>
+            </a>
+            <a class="return-a" href="./udai_collection.html">
+                <i class="iconfont icon-aixin"></i>
+                <span class="return-s">我的收藏</span>
+            </a>
+            <a class="return-a" href="">
+                <i class="iconfont icon-liaotian"></i>
+                <span class="return-s">联系客服</span>
+            </a>
+            <a class="return-a" href="./fankui.html">
+                <i class="iconfont icon-liuyan"></i>
+                <span class="return-s">留言反馈</span>
+            </a>
+            <a href="" class="return-top">
+                <i class="iconfont icon-top"></i>
+            </a>
+        </div>
+        <div class="man">
+            <span class="layui-breadcrumb" lay-separator=" > ">
+                <a href="./index.html">首页</a>
+                <a>
+                    <span style="font-size: 14px;">折扣专区</span>
+                </a>
+            </span>
+            <div class="man-xuan">
+                <a href="./manjian.html">
+                    <div class="man-xuan-b">满减专区</div>
+                </a>
+                <a href="./manjian2.html">
+                    <div class="man-xuan-b">热卖专区</div>
+                </a>
+                <a href="#">
+                    <div class="man-xuan-a">折扣专区</div>
+                </a>
+            </div>
+            <div style="padding-top: 20px;box-sizing: border-box;">
+                <div class="man-pai">
+                    <div class="man-pai-a" style="font-size: 14px;">排序:</div>
+                    <div class="man-pai-b">
+                        <div style="font-size: 14px;" @click="jiantou">销量
+                            <span :class="shangjian"></span>
+                        </div>
+                    </div>
+                    <div class="man-pai-b">
+                        <div style="font-size: 14px;" @click="jiantou2">评价
+                            <span :class="xiajian"></span>
+                        </div>
+                    </div>
+                    <div class="man-pai-b">
+                        <div style="font-size: 14px;">价格</div>
+                    </div>
+                    <div class="man-pai-c">
+                        共{{geshu | geshu2}}个商品
+                    </div>
+                </div>
+            </div>
+            <div class="shang">
+                <!-- 详情左 -->
+                <div class="lie-zuo">
+                    <!-- 详情框 -->
+                    <div class="lie-zuo-q" v-for="(item, index) in lie" :key="index">
+                        <div class="kk" style="padding: 10px 10px 0px 10px;box-sizing: border-box;">
+                            <a href="./shangPinXiangQing.html">
+                                <div class="lie-zuo-q-q">
+                                    <img :src="item.a" alt="" style="width: 230px;height: 280px;">
+                                    <!-- 遮罩 -->
+                                    <div class="lie-zuo-q-q-q"></div>
+                                    <!-- 说明文字 -->
+                                    <div class="lie-zuo-q-q-w">
+                                        {{item.b | shuoming}}
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="lie-zuo-q-w">
+                                <div class="lie-zuo-q-w-q">
+                                    <div style="float: left;">
+                                        <span class="lie-zuo-q-w-q-q">¥</span>
+                                        <span class="lie-zuo-q-w-q-w">{{item.c | qianfen}}</span>
+                                    </div>
+                                    <div class="lie-zuo-q-w-w">
+                                        满{{item.d}}减{{item.e}}
+                                    </div>
+                                </div>
+                                <div class="lie-zuo-q-w-e">
+                                    <div class="lie-zuo-q-w-e-q">
+                                        <span class="lie-zuo-q-w-e-q-q">销量</span>
+                                        <span class="lie-zuo-q-w-e-q-w">{{item.f | geshu2}}</span>
+                                    </div>
+                                    <div class="lie-zuo-q-w-e-e">
+                                        <span class="lie-zuo-q-w-e-q-q">人气</span>
+                                        <span class="lie-zuo-q-w-e-q-w">{{item.g | geshu2}}</span>
+                                    </div>
+                                    <div class="lie-zuo-q-w-e-w">
+                                        <span class="lie-zuo-q-w-e-q-q">评论</span>
+                                        <span class="lie-zuo-q-w-e-q-w">{{item.h | geshu2}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- 分页 -->
+                    <div class="fen">
+                        <div class="fen-q">
+                            确定
+                        </div>
+                        <div class="fen-w">
+                            页
+                        </div>
+                        <input type="text" class="fen-e">
+                        <div class="fen-w">
+                            到第
+                        </div>
+                        <div class="fen-r">
+                            1/5
+                        </div>
+                        <div class="fen-t">
+                            下一页
+                        </div>
+                        <div class="fen-y">
+                            5
+                        </div>
+                        <div class="fen-y">
+                            4
+                        </div>
+                        <div class="fen-y">
+                            3
+                        </div>
+                        <div class="fen-y">
+                            2
+                        </div>
+                        <div class="fen-u">
+                            1
+                        </div>
+                        <div class="fen-t">
+                            上一页
+                        </div>
+                    </div>
+                </div>
+                <!-- 详情右 -->
+                <div class="lie-you">
+                    <div class="lie-you-q">
+                        <div class="lie-you-q-q">
+                            <img src="img/lace-title_1.png" alt="">
+                            <div class="lie-you-q-q-q">
+                                爆款推荐
+                            </div>
+                        </div>
+                        <div class="lie-you-q-w" v-for="(its, index) in bao" :key="index">
+                            <a href="./shangPinXiangQing.html" style="width:160px;height:180px;display: block;">
+                                <div class="cc">
+                                    <img :src="its.a" alt="" style="width: 160px;height: 160px;">
+                                    <div class="lie-you-q-w-q"></div>
+                                    <div class="lie-you-q-w-w">¥{{its.b}}</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <div class="footer">
+            <div class="tags">
+                <div class="tags-img">
+                    <div>
+                        <img src="./img/footer_1.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_2.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_3.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_4.gif">
+                    </div>
+                </div>
+            </div>
+            <div class="links">
+                <div class="one">
+                    <h2>U袋网</h2>
+                    <div class="links-one" v-for="item in one">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="two">
+                    <h2>服务中心</h2>
+                    <div class="links-two" v-for="item in two">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="three">
+                    <h2>新手上路</h2>
+                    <div class="links-three" v-for="item in three">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copy">
+                <div class="copy-1" v-for="item in copy">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+            </div>
+            <div class="copy-2">
+                <div>© 2005-2017 U袋网 版权所有，并保留所有权利</div>
+                <div>ICP备案证书号：闽ICP备16015525号-2 福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室 Tel: 18650406668 E-mail: 18650406668@qq.com</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="js/pagejs/manjian3.js"></script>

@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="js/vue.js"></script>
+    <script src="./layui/layui.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./css/iconfont.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <title>U袋网</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        .shengzi {
+            width: 1200px;
+            margin: 0 auto;
+            background: #f5f5f5;
+            height: 1058px;
+        }
+
+        .left {
+            width: 230px;
+        }
+
+        .one {
+            width: 100%;
+            height: 42px;
+            background: #fff;
+        }
+
+        .one a p {
+            height: 32px;
+            background: #b31e22;
+            line-height: 32px;
+            padding-left: 20px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .two {
+            width: 100%;
+        }
+
+        .two p {
+            height: 32px;
+            line-height: 32px;
+            padding-left: 20px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .two ul {
+            padding-bottom: 10px;
+            background: #fff;
+        }
+
+        .two ul li {
+            height: 32px;
+            line-height: 32px;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+
+        .xq {
+            font-size: 14px;
+            color: #666;
+            display: block;
+            width: 100%;
+        }
+
+        .two ul li:hover {
+            cursor: pointer;
+            background: #f5f5f5;
+        }
+
+        .two ul a:hover {
+            text-decoration: none;
+            color: #666
+        }
+
+        .left {
+            margin-right: 20px;
+        }
+
+        .right {
+            width: 950px;
+        }
+
+        .xiang {
+            width: 950px;
+            padding: 20px 24px 0px 24px;
+            box-sizing: border-box;
+            background: #ffffff;
+        }
+
+        .xiang-ge {
+            padding-bottom: 12px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #e0e0e0;
+            color: #666666;
+            font-size: 14px;
+        }
+
+        .xiang-zi {
+            padding: 20px 0px 30px 20px;
+            box-sizing: border-box;
+        }
+
+        .xiang-tou {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid #e0e0e0;
+            padding: 2px;
+            box-sizing: border-box;
+        }
+
+        .xiang-tu {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .xiang-liao {
+            padding-top: 20px;
+            padding-left: 30px;
+            box-sizing: border-box;
+        }
+
+        .xiang-liao-q {
+            font-size: 14px;
+            line-height: 30px;
+        }
+
+        .layui-input {
+            height: 30px;
+        }
+
+        .xiang-que {
+            margin-top: 10px;
+            margin-bottom: 30px;
+            width: 82px;
+            line-height: 34px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            background: #b31e22;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .xiang-ji {
+
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .xiang-ji-q {
+            width: 96px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #333333;
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px 0px;
+            box-sizing: border-box;
+        }
+
+        .xiang-ji-w {
+            padding-top: 20px;
+            padding-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .xiang-ji-w-q {
+            border: 1px solid #e0e0e0;
+            padding: 20px 0px;
+            box-sizing: border-box;
+            background: #f5f5f5;
+        }
+
+        .xiang-ji-w-q-q {
+            padding: 4px 0px;
+            box-sizing: border-box;
+        }
+
+        .xiang-ji-w-q-q-q {
+            padding: 22px 0px 26px 0px;
+            box-sizing: border-box;
+            border-right: 1px solid #e0e0e0;
+            text-align: center;
+            width: 180px;
+        }
+
+        .xiang-ji-w-q-q-q-q {
+            line-height: 56px;
+            font-weight: bold;
+            font-size: 36px;
+            color: #b31e22;
+        }
+
+        .xiang-ji-w-q-w {
+            padding-left: 50px;
+            box-sizing: border-box;
+        }
+
+        .xiang-ji-w-q-w-q {
+            font-size: 16px;
+            color: #b31e22;
+            font-weight: bold;
+        }
+
+        .xiang-ji-w-q-w-w {
+            font-size: 12px;
+            color: #333333;
+            line-height: 18px;
+        }
+
+        .xiang-ji-w-q-w-e {
+            font-size: 10px;
+            color: #666666;
+            line-height: 18px;
+            padding-left: 24px;
+            box-sizing: border-box;
+        }
+
+        .xiang-ji-dui {
+            font-size: 18px;
+            color: #b31e22;
+            line-height: 64px;
+        }
+
+        .xiang-ji-e {
+            padding: 20px 0px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .xiang-ji-e-q {
+            border: 1px solid #e0e0e0;
+            background: #f1f1f1;
+        }
+
+        .xiang-ji-e-q-q {
+            line-height: 28px;
+            font-size: 14px;
+            text-align: center;
+            color: #666666;
+        }
+
+        .xiang-ji-r {
+            padding: 18px 10px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .xiang-ji-r-q {
+            line-height: 16px;
+            font-size: 14px;
+            color: #666666;
+        }
+
+        .xiang-ji-r-w {
+            padding-top: 14px;
+            box-sizing: border-box;
+            font-size: 12px;
+            color: #999999;
+        }
+
+        .xiang-ji-r-e {
+            margin-left: 10px;
+            padding: 14px 0px;
+            box-sizing: border-box;
+        }
+
+        .xiang-ji-r-e-q {
+            width: 90px;
+            line-height: 30px;
+            text-align: center;
+            background: #b31e22;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        .feng {
+            padding: 14px 5px;
+            box-sizing: border-box;
+        }
+
+        .feng-q {
+            margin-left: 14px;
+            border: 1px solid #999999;
+            padding: 0px 14px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #666666;
+            line-height: 34px;
+            cursor: pointer;
+        }
+
+        .zi {
+            color: #b31e22;
+            border-bottom: 1px solid #b31e22;
+        }
+
+        .xiang-ji-r:hover {
+            box-shadow: 0px 0px 20px 0px #b31e22;
+        }
+
+        .xiang-ji-r-t {
+            line-height: 60px;
+            width: 220px;
+            font-size: 14px;
+            color: #b31e22;
+            text-align: center;
+        }
+
+        .xiang-ji-r-y {
+            line-height: 60px;
+            width: 228px;
+            font-size: 14px;
+            color: #999999;
+            text-align: center;
+        }
+
+        .huo {
+            font-size: 18px;
+            line-height: 42px;
+        }
+
+        .huo-q {
+            width: 96px;
+            line-height: 36px;
+            text-align: right;
+            color: #999999;
+            font-size: 16px;
+        }
+
+        .huo-w {
+            margin-left: 24px;
+        }
+
+        .huo-w-q {
+            width: 332px;
+            height: 32px;
+            font-size: 14px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+        }
+
+        .huo-d {
+            padding: 7px 0px;
+            box-sizing: border-box;
+        }
+
+        .huo-w-q-w {
+            padding: 10px 8px;
+            box-sizing: border-box;
+        }
+
+        .huo-r {
+            width: 334px;
+            height: 36px;
+            background: #b31e22;
+            color: #ffffff;
+            font-size: 18px;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .huo-w-w {
+            width: 138px;
+            margin-right: 6px;
+            margin-bottom: 14px;
+        }
+
+        .mima {
+            padding: 20px 0px 10px 0px;
+            box-sizing: border-box;
+        }
+
+        .mima-q {
+            padding: 22px 0px 16px 30px;
+            box-sizing: border-box;
+            border: 1px solid #e0e0e0;
+        }
+
+        .mima-q-w {
+            width: 134px;
+            line-height: 34px;
+            color: #ffffff;
+            background: #b31e22;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .mima-q-e {
+            width: 134px;
+            line-height: 34px;
+            font-size: 14px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .mima-w {
+            line-height: 48px;
+            font-size: 14px;
+            color: #737373;
+        }
+
+        .yin {
+            display: none;
+        }
+
+        .xian {
+            display: block;
+        }
+
+        .ziyan {
+            color: #666;
+        }
+
+        .ziyan2 {
+            color: #666666;
+            background: none;
+        }
+
+        .ziyan3 {
+            font-size: 24px;
+            line-height: 60px;
+        }
+
+        .ziyan4 {
+            color: #280;
+        }
+
+        .ziyan5 {
+            color: #b31e22;
+        }
+
+        .zi2 {
+            color: #ffffff;
+            background: #b31e22;
+            border: none;
+        }
+
+        .mima-w {
+            display: flex;
+            width: 900px;
+        }
+
+        .mima-w-q {
+            flex: 1;
+            line-height: 34px;
+            font-size: 14px;
+        }
+
+        .mima-w-q-q {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #e2e2e2;
+            padding: 3px;
+            box-sizing: border-box;
+        }
+
+        .mima-w-q-q-q {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            overflow: hidden;
+            text-align: center;
+            font-size: 16px;
+            color: #ffffff;
+            font-weight: bold;
+            text-align: center;
+            line-height: 28px;
+        }
+
+        .mima-w-q-w {
+            padding: 12px 0px;
+            box-sizing: border-box;
+        }
+
+        .mima-w-q-w-q {
+            height: 10px;
+            padding: 3px 0px;
+            box-sizing: border-box;
+            background: #e2e2e2;
+        }
+
+        .mima-w-q-w-q-q {
+            width: 268px;
+            height: 4px;
+        }
+
+        .mima-w-w {
+            line-height: 34px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .mima-w-q-w-q-w {
+            width: 134px;
+            height: 4px;
+        }
+
+        .mima-w-w-e {
+            line-height: 34px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .jing {
+            background: #b31e22;
+        }
+
+        .mima-e {
+            height: 54px;
+            width: 280px;
+            position: relative;
+        }
+
+        .mima-e-q {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 280px;
+            height: 34px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+
+        }
+
+        .mima-e-w {
+            position: absolute;
+            left: 1px;
+            bottom: 1px;
+            width: 280px;
+            height: 34px;
+            border: none;
+            padding: 6px 12px;
+            box-sizing: border-box;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        .mima-e-e {
+            position: absolute;
+            left: 12px;
+            bottom: 12px;
+            font-size: 14px;
+            color: #666666;
+        }
+
+        .mima-e-r {
+            position: absolute;
+            right: 12px;
+            bottom: 7px;
+        }
+
+        .mima-r {
+            padding: 20px 0px;
+            box-sizing: border-box;
+        }
+
+        .mima-r-q {
+            line-height: 34px;
+            text-align: center;
+            width: 125px;
+            background: #b31e22;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .bianyan {
+            border: 1px solid #b31e22;
+        }
+
+        .bianyan2 {
+            bottom: 26px;
+            color: #b31e22;
+            background: #fff;
+            transition: bottom 1s;
+        }
+
+        .mima-t {
+            padding: 36px 0px 70px 0px;
+            box-sizing: border-box;
+
+        }
+
+        .mima-t-q {
+            width: 50px;
+            height: 50px;
+            background: #b31e22;
+            color: #ffffff;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto;
+        }
+
+        .mima-t-w {
+            font-size: 12px;
+            color: #666560;
+            line-height: 42px;
+            text-align: center;
+        }
+
+        .mima-t-e {
+            width: 360px;
+            padding-top: 12px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .mima-t-e-q {
+            line-height: 34px;
+            font-size: 14px;
+            color: #ffffff;
+            background: #b31e22;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* 头部 */
+
+        .over {
+            background: #f5f5f5;
+        }
+
+        .over-bg {
+            height: 35px;
+            width: 1200px;
+            margin: 0 auto;
+            line-height: 35px;
+        }
+
+        .over-left,
+        .over-welcome {
+            float: left;
+            display: flex;
+        }
+
+        .over-right {
+            float: right;
+            display: flex;
+        }
+
+        .over-welcome,
+        .over-welcome span,
+        .over-left a,
+        .over-right a {
+            font-size: 14px;
+        }
+
+        .over-left a,
+        .over-right a {
+            margin-left: 30px;
+        }
+
+        .over-red {
+            color: #b31e22;
+            margin: 0;
+        }
+
+        .over-left a:hover,
+        .over-right a:hover {
+            color: #b31e22;
+        }
+
+        .search {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .logo {
+            margin-right: 100px;
+            padding-top: 10px;
+            padding-bottom: 7px;
+            box-sizing: border-box;
+            margin-left: 5.8%;
+            display: inline-block;
+        }
+
+        .logo img {
+            width: 224px;
+            height: 80px;
+        }
+
+        .inp {
+            width: 600px;
+            padding-top: 32px;
+            box-sizing: border-box;
+        }
+
+        .search-inp {
+            height: 36px;
+            position: relative;
+        }
+
+        .search-inp input {
+            height: 36px;
+            width: 100%;
+            border: solid 1px #b31e22;
+            box-sizing: border-box;
+            font-size: 14px;
+            padding-left: 5px;
+        }
+
+        .search-inp button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 36px;
+            width: 60px;
+            background: #b31e22;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-inp button img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .search-hot {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #999;
+            float: left;
+            margin-right: 5px;
+        }
+
+        .search-hot:hover {
+            color: #b31e22;
+        }
+
+        .car {
+            margin-left: 146px;
+            margin-top: 32px;
+            border: solid 1px #ccc;
+            box-sizing: border-box;
+            width: 154px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            color: #999;
+        }
+
+        .car {
+            display: block;
+            font-size: 14px;
+        }
+
+        .fz16 {
+            font-size: 14px;
+            color: #b31e22;
+        }
+
+        /* 导航栏 */
+
+        .nav {
+            width: 100%;
+            height: 40px;
+            background: #333;
+        }
+
+        .all {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            position: relative;
+        }
+
+        .nav-all {
+            width: 200px;
+            height: 40px;
+            background: #b31e22;
+            line-height: 40px;
+            font-size: 16px;
+            color: #fff;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+
+        .nav-list a {
+            float: left;
+            display: block;
+            width: 100px;
+            text-align: center;
+            color: #fff;
+            line-height: 40px;
+        }
+
+        .nav-list a:hover {
+            background: #666666;
+        }
+
+        /* 返回顶部 */
+
+        .return {
+            width: 35px;
+            height: 240px;
+            position: fixed;
+            bottom: -35px;
+            right: 0;
+            z-index: 999;
+        }
+
+        .return a {
+            display: block;
+            width: 35px;
+            height: 35px;
+            background: #7a6e6e;
+            margin-bottom: 2px;
+            text-align: center;
+            line-height: 35px;
+            position: relative;
+        }
+
+        .return a i {
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .return a span {
+            color: #fff;
+            background: #616161;
+            height: 25px;
+            width: 60px;
+            line-height: 25px;
+            text-align: center;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            right: 40px;
+            display: none;
+            margin-top: 5px;
+        }
+
+        .return-a:hover .return-s {
+            display: block;
+        }
+
+        .return a.return-top {
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* 底部 */
+
+        .footer {
+            margin-top: 40px;
+        }
+
+        .tags {
+            width: 100%;
+            height: 88px;
+            background: #f8f8f8;
+        }
+
+        .tags-img {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .tags-img div {
+            width: 300px;
+            border-right: solid 1px #ececec;
+            text-align: center;
+            margin-top: 24px;
+            box-sizing: border-box;
+        }
+
+        .links {
+            width: 1200px;
+            height: 146px;
+            margin: 0 auto;
+            border-bottom: 1px solid #e0e0e0;
+            box-sizing: border-box;
+            display: flex;
+            padding-top: 25px;
+        }
+
+        .links h2 {
+            font-size: 14px;
+        }
+
+        .links a {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .links a:hover,
+        .dibu-1 a:hover {
+            text-decoration: underline;
+        }
+
+        .links h2 {
+            font-weight: bold;
+        }
+
+        .one2 {
+            margin-left: 220px;
+        }
+
+        .two2 {
+            margin-left: 260px;
+        }
+
+        .three {
+            margin-left: 260px;
+        }
+
+        .copy {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            padding-left: 270px;
+            box-sizing: border-box;
+        }
+
+        .copy-1 {
+            height: 50px;
+            padding: 20px 0 10px 60px;
+            box-sizing: border-box;
+        }
+
+        .copy-1 a {
+            font-size: 14px;
+        }
+
+        .copy-1 a:hover {
+            text-decoration: underline;
+        }
+
+        .copy-2 {
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .copy-2 div {
+            margin-bottom: 10px;
+        }
+
+        .active,
+        .nav-list a.active {
+            color: #b31e22
+        }
+
+        .beijing {
+            background: #ffffff;
+        }
+
+        .fu-q {
+            padding: 18px 0px 30px 0px;
+            box-sizing: border-box;
+        }
+
+        .fu-q-q {
+            font-size: 24px;
+            line-height: 44px;
+            color: #323534;
+        }
+
+        .fu-q-w {
+            padding-left: 36px;
+            box-sizing: border-box;
+        }
+
+        .fu-q-w-q {
+            font-size: 14px;
+            line-height: 20px;
+            color: #333;
+        }
+
+        .search2 {
+            background: #ffffff;
+            width: 100%;
+            height: 110px;
+        }
+
+        .geren {
+            display: inline-block;
+            width: 120px;
+            padding: 20px 0px;
+            box-sizing: border-box;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #333333;
+            text-align: center;
+            border-left: 1px solid #e0e0e0;
+        }
+
+        .xuan {
+            color: #b31e22;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="udai-welcome" class="clearfix body" v-cloak>
+        <!-- 头部 -->
+        <div class="header">
+            <div class="over">
+                <div class="over-bg clearfix">
+                    <div class="over-welcome">嗨，欢迎来到
+                        <span class="over-red">U袋网</span>
+                    </div>
+                    <div class="over-left" v-for="item in left">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                    <div class="over-right" v-for="(item,index) in right">
+                        <a :href="item.url" :class="{'active':index==4}">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search2">
+                <a href="./index.html" class="logo">
+                    <img src="img/icons/logo-news.png">
+                </a>
+                <div class="geren">个人中心</div>
+            </div>
+        </div>
+        <!-- 导航栏 -->
+        <div class="nav" style=" background: #f5f5f5;">
+
+        </div>
+        <!-- 返回顶部 -->
+        <div class="return">
+            <a class="return-a" href="">
+                <i class="iconfont icon-user"></i>
+                <span class="return-s">用户中心</span>
+            </a>
+            <a class="return-a" href="">
+                <i class="iconfont icon-cart"></i>
+                <span class="return-s">购物车</span>
+            </a>
+            <a class="return-a" href="">
+                <i class="iconfont icon-aixin"></i>
+                <span class="return-s">我的收藏</span>
+            </a>
+            <a class="return-a" href="">
+                <i class="iconfont icon-liaotian"></i>
+                <span class="return-s">联系客服</span>
+            </a>
+            <a class="return-a" href="">
+                <i class="iconfont icon-liuyan"></i>
+                <span class="return-s">留言反馈</span>
+            </a>
+            <a href="" class="return-top">
+                <i class="iconfont icon-top"></i>
+            </a>
+        </div>
+        <div class="shengzi">
+            <div class="left fl">
+                <div class="one">
+                    <a href="./udai_welcome.html">
+                        <p>U袋欢迎页</p>
+                    </a>
+                </div>
+                <div class="two">
+                    <p>账户信息</p>
+                    <ul>
+                        <li>
+                            <a href="./udai_welcome2.html" class="xq">个人资料</a>
+                        </li>
+                        <li>
+                            <a href="./udai_welcome3.html" class="xq">积分平台</a>
+                        </li>
+                        <li style="padding-left: 15px;box-sizing: border-box;border-left: 5px solid #b31e22;">
+                            <a href="javascript:;" class="xq xuan">收货地址</a>
+                        </li>
+                        <li>
+                            <a href="./udai_welcome5.html" class="xq">修改登录密码</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>订单中心</p>
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="xq">我的订单</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">我的收藏</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">退货/换货</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>服务中心</p>
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="xq">物流查询</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">数据自动下载</a>
+                        </li>
+                        <li>
+                            <a href="./udai_welcome6.html" class="xq">售后服务</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">配送服务</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">用户协议</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">常见问题</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>新手上路</p>
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="xq">如何成为代理商</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">代销商上架教程</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">分销商常见问题</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">付款账户</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <p>U袋网</p>
+                    <ul>
+                        <li>
+                            <a href="javascript:;" class="xq">企业简介</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">加入U袋</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" class="xq">隐私说明</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 收货地址 -->
+            <div class="xiang fl">
+                <div class="xiang-ge">
+                    账户信息-收货地址
+                </div>
+                <div style="padding: 12px 0px 45px 0px;box-sizing: border-box;">
+                    <div>
+                        <span class="huo" style="color: #b31e22;padding-right: 20px;box-sizing: border-box;">新增收货地址</span>
+                        <span class="huo">电话号码、手机号码选填一项，其余均为必填项</span>
+                    </div>
+                    <div class="clearfix huo-d">
+                        <div class="fl huo-q">收货人姓名:</div>
+                        <div class="fl huo-w">
+                            <input type="text" placeholder="请输入姓名" class="huo-w-q huo-w-q-w">
+                        </div>
+                    </div>
+                    <div class="clearfix huo-d">
+                        <div class="fl huo-q" style="height: 60px;">收货地址:</div>
+                        <div class="fl huo-w" style="width: 638px;">
+                            <div class="layui-input-inline">
+                                <select name="quiz1" class=" huo-w-q huo-w-w">
+                                    <option value="">请选择省</option>
+                                    <option value="浙江" selected="">浙江省</option>
+                                    <option value="你的工号">江西省</option>
+                                    <option value="你最喜欢的老师">福建省</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline">
+                                <select name="quiz2" class=" huo-w-q huo-w-w">
+                                    <option value="">请选择市</option>
+                                    <option value="杭州">杭州</option>
+                                    <option value="宁波">宁波</option>
+                                    <option value="温州">温州</option>
+                                    <option value="温州">台州</option>
+                                    <option value="温州">绍兴</option>
+                                </select>
+                            </div>
+                            <div class="layui-input-inline">
+                                <select name="quiz3" class=" huo-w-q huo-w-w">
+                                    <option value="">请选择县/区</option>
+                                    <option value="西湖区">西湖区</option>
+                                    <option value="余杭区">余杭区</option>
+                                    <option value="拱墅区">临安市</option>
+                                </select>
+                            </div>
+                            <input type="text" placeholder="建议您如实填写详细收货地址，例如街道名称，门牌号码等信息" class="huo-w-q huo-w-q-w" style="width: 576px;">
+                        </div>
+                    </div>
+                    <div class="clearfix huo-d">
+                        <div class="fl huo-q">手机号码:</div>
+                        <div class="fl huo-w">
+                            <input type="text" placeholder="请输入手机号码" class="huo-w-q huo-w-q-w">
+                        </div>
+                    </div>
+                    <div class="clearfix huo-d">
+                        <div class="fl huo-q">电话号码:</div>
+                        <div class="fl huo-w">
+                            <input type="text" placeholder="请输入电话号码" class="huo-w-q huo-w-q-w">
+                        </div>
+                    </div>
+                    <div class="clearfix huo-d">
+                        <div class="fl huo-q" style="height: 5px;"></div>
+                        <div class="fl huo-w">
+                            <input type="checkbox" placeholder="" id="aaaa">
+                            <label for="aaaa">设为默认地址</label>
+                        </div>
+                    </div>
+                    <div class="clearfix huo-d">
+                        <div class="fl huo-q" style="height: 5px;"></div>
+                        <div class="fl huo-w">
+                            <div class="huo-r">保存</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer beijing">
+            <div class="tags">
+                <div class="tags-img">
+                    <div>
+                        <img src="./img/footer_1.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_2.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_3.gif">
+                    </div>
+                    <div>
+                        <img src="./img/footer_4.gif">
+                    </div>
+                </div>
+            </div>
+            <div class="links">
+                <div class="one2">
+                    <h2>U袋网</h2>
+                    <div class="links-one" v-for="item in one">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="two2">
+                    <h2>服务中心</h2>
+                    <div class="links-two" v-for="item in two">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="three">
+                    <h2>新手上路</h2>
+                    <div class="links-three" v-for="item in three">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copy">
+                <div class="copy-1" v-for="item in copy">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+            </div>
+            <div class="copy-2">
+                <div>© 2005-2017 U袋网 版权所有，并保留所有权利</div>
+                <div>ICP备案证书号：闽ICP备16015525号-2 福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室 Tel: 18650406668 E-mail: 18650406668@qq.com</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#udai-welcome ",
+        methods: {
+            xiange() {
+                this.ge = '1';
+                this.ji = '0';
+                this.huo = '0';
+                this.mi = '0';
+            },
+            xianji() {
+                this.ge = '0';
+                this.ji = '1';
+                this.huo = '0';
+                this.mi = '0';
+            },
+            xianhuo() {
+                this.ge = '0';
+                this.ji = '0';
+                this.huo = '1';
+                this.mi = '0';
+            },
+            xianmi() {
+                this.ge = '0';
+                this.ji = '0';
+                this.huo = '0';
+                this.mi = '1';
+            },
+            xuan() {
+                this.zi2 = '1';
+                this.tiao = this.tiao3;
+                this.shang = this.shang2;
+            },
+            xuan2() {
+                this.zi2 = '2';
+                this.tiao = this.tiao2;
+                this.shang = this.shang3;
+            },
+            xuan3() {
+                this.zi3 = '1';
+                this.shang = this.shang2;
+            },
+            xuan4() {
+                this.zi3 = '2';
+                this.shang = this.dui;
+            },
+            jiao() {
+                this.fei = '1';
+            },
+            jiao2() {
+                this.fei2 = '1';
+                this.fei3 = '1';
+            },
+            jiao3() {
+                this.fei4 = '1';
+                this.fei5 = '1';
+            },
+            xiu() {
+                this.gai = '1';
+                this.gai3 = '1';
+            },
+            xiu2() {
+                this.gai2 = '1';
+                this.gai3 = '0';
+                this.gai4 = '1';
+            },
+            xiu3() {
+                this.gai4 = '0';
+                this.gai5 = '1';
+            }
+        },
+        data: {
+            ge: '0',
+            ji: '0',
+            huo: '0',
+            mi: '0',
+            fu: '0',
+            zi2: '1',
+            zi3: '1',
+            fei: '0',
+            fei2: '0',
+            fei3: '0',
+            fei4: '0',
+            fei5: '0',
+            gai: '0',
+            gai2: '0',
+            gai3: '0',
+            gai4: '0',
+            gai5: '0',
+            tiao: {
+                a: '商品信息',
+                s: '市场价',
+                d: '所需积分',
+                f: '操作'
+            },
+            tiao2: {
+                a: '来源/用途',
+                s: '积分变化',
+                d: '日期',
+                f: '备注'
+            },
+            tiao3: {
+                a: '商品信息',
+                s: '市场价',
+                d: '所需积分',
+                f: '操作'
+            },
+            dui: [{
+                    a: 'img/S-002.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/S-002.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/S-002.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/S-002.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                }
+            ],
+            shang: [{
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                }
+            ],
+            shang2: [{
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '¥262.00',
+                    h: '500',
+                    j: '兑换'
+                }
+            ],
+            shang3: [{
+                    a: 'img/M-006.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '+1000',
+                    h: '2017年4月12日 15:13:14',
+                    j: '交易获得'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '-1000',
+                    h: '2017年4月12日 15:13:14',
+                    j: '交易获得'
+                },
+                {
+                    a: 'img/M-006.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '+1000',
+                    h: '2017年4月12日 15:13:14',
+                    j: '交易获得'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '+1000',
+                    h: '2017年4月12日 15:13:14',
+                    j: '交易获得'
+                },
+                {
+                    a: 'img/M-006.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '+1000',
+                    h: '2017年4月12日 15:13:14',
+                    j: '交易获得'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '+1000',
+                    h: '2017年4月12日 15:13:14',
+                    j: '交易获得'
+                },
+                {
+                    a: 'img/u=1458451362,2333364562&fm=27&gp=0.jpg',
+                    s: '锦瑟 原创传统日常汉服男绣花交领衣裳cp情侣装春夏款',
+                    d: '深棕色',
+                    f: '均码',
+                    g: '+1000',
+                    h: '2017年4月12日 15:13:14',
+                    j: '交易获得'
+                }
+            ],
+            left: [{
+                url: '#',
+                text: '网站代销'
+            }, {
+                url: '#',
+                text: '帮助中心'
+            }],
+            right: [{
+                    url: '#',
+                    text: '积分平台'
+                }, {
+                    url: '#',
+                    text: '我的订单'
+                }, {
+                    url: '#',
+                    text: '我的U袋'
+                },
+                {
+                    url: '#',
+                    text: '注册'
+                }, {
+                    url: '#',
+                    text: '登录'
+                }
+            ],
+            hot: [{
+                    url: '#',
+                    text: '连衣裙'
+                }, {
+                    url: '#',
+                    text: '衬衫'
+                }, {
+                    url: '#',
+                    text: '裤'
+                }, {
+                    url: '#',
+                    text: 'T恤'
+                },
+                {
+                    url: '#',
+                    text: '女包'
+                }, {
+                    url: '#',
+                    text: '家居服'
+                }, {
+                    url: '#',
+                    text: '2017新款'
+                }
+            ],
+            list: [{
+                    url: '#',
+                    text: '首页'
+                }, {
+                    url: '#',
+                    text: '企业简介'
+                },
+                {
+                    url: '#',
+                    text: '新手上路'
+                }, {
+                    url: '#',
+                    text: 'U袋学堂'
+                }, {
+                    url: '#',
+                    text: '企业账号'
+                }, {
+                    url: '#',
+                    text: '诚信合约'
+                }, {
+                    url: '#',
+                    text: '实时下架'
+                }
+            ],
+            one: [{
+                img: '#',
+                text: '企业简介'
+            }, {
+                img: '#',
+                text: '加入U袋'
+            }, {
+                img: '#',
+                text: '隐私说明'
+            }],
+            two: [{
+                    img: '#',
+                    text: '售后服务'
+                }, {
+                    img: '#',
+                    text: '配送服务'
+                },
+                {
+                    img: '#',
+                    text: '用户协议'
+                }, {
+                    img: '#',
+                    text: '常见问题'
+                }
+            ],
+            three: [{
+                    img: '#',
+                    text: '如何成为代理商'
+                }, {
+                    img: '#',
+                    text: '代销商上架教程'
+                }, {
+                    img: '#',
+                    text: '分销商常见问题'
+                },
+                {
+                    img: '#',
+                    text: '付款账户'
+                }
+            ],
+            copy: [{
+                    url: '#',
+                    text: '网店代销'
+                }, {
+                    url: '#',
+                    text: 'U袋学堂'
+                }, {
+                    url: '#',
+                    text: '联系我们'
+                }, {
+                    url: '#',
+                    text: '企业简介'
+                },
+                {
+                    url: '#',
+                    text: '新手上路'
+                }
+            ]
+        }
+    })
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#test22',
+            showBottom: false
+        });
+    })
+</script>
+<script>
+    window.onscroll = function () {
+        if ($(document).scrollTop() > $(window).height()) {
+            $('.return a.return-top').css({
+                'display': 'block'
+            })
+            $('.return').css({
+                'bottom': '10px'
+            })
+        }
+        if ($(document).scrollTop() == 0) {
+            $('.return a.return-top').css({
+                'display': 'none'
+            })
+            $('.return').css({
+                'bottom': '-35px'
+            })
+        }
+    }
+</script>

@@ -1,0 +1,72 @@
+@charset "utf-8";
+#mask{
+	width: 100%;
+	height: 300%;
+	position: absolute;
+	top: 0;
+    z-index: 999;
+    opacity: 0.5;
+    background-color: #000;
+    transition: all .1s;
+}
+
+
+
+#Wechat{
+	width: 370px;
+	height: 440px;
+	position: fixed;
+	top: 0%;
+	left: 36%;
+	z-index: 9999;
+	background-color: #fff;
+	opacity: 0;
+}
+#Wechat_he{
+	width: 370px;
+	height: 60px;
+	background-color: #F5F5F5;
+}
+#Wechat_he span{
+	font-size: 18px;
+	line-height: 60px;
+	font-weight: 400;
+	color: #424242;
+	margin-left: 20px;
+	margin-right: 230px;
+}
+#Wechat_he i{
+	font-weight: bold;
+	font-style: normal;
+	cursor: pointer;
+	font-size: 18px;
+	/* font-family:!important; */
+	color: #757575;
+	padding:6.5px 10px;
+	border-radius: 100%;
+	transition: all .3s;
+}
+#Wechat_he i:hover{
+    background-color: #E53935;
+    color: #fff;
+}
+#Wechat_bd{
+	text-align: center;
+	padding-top: 30px;
+}
+.msg{
+	margin-top: 14px;
+}
+.msg span{
+	color: #FF6700;
+	cursor: pointer;
+}
+#Wechat_pay{
+    position: fixed;
+    width: 370px;
+    height: 500px;
+    left: 13.8%;
+    top: 12%;
+    opacity: 0;
+	background: url(../images/icons/weinxin-pay.png) no-repeat;
+}

@@ -1,0 +1,15 @@
+@charset "utf-8";
+        /* main */
+        .main{width: 1180px;margin: 0 auto;margin-top: 40px;}
+        /* 平台公告 */
+        .top{height: 31px;width: 1180px;border-bottom: 1px solid #b31e22;}
+        .top .pp{cursor: pointer;display: block;}
+        .top .pp{height: 31px;width: 150px;background: #b31e22;line-height: 31px;text-align: center;font-size: 14px;color: #fff;}
+        /* 底部内容 */
+        .bottom{width: 1180px;margin-top: 10px;}
+        /* 新闻详情 */
+        .right{width: 1180px;height: 700px;border: 1px solid #bbb;padding: 0 20px;box-sizing: border-box;color: #333;font-size: 13px;}
+        .right .tt{width: 1140px;height: 82px;border-bottom: 1px solid #bbb;}
+        .right .tt .title{width: 1140px;height: 55px;line-height: 55px;text-align: center;font-size: 16px;overflow: hidden;}
+        .right .tt .time{width: 1140px;height: 24px;line-height: 24px;text-align: right;font-size: 13px;color: #666666;}
+        .right .cont p{line-height: 24px;text-indent: 2em;margin-top: 20px;margin-bottom: 20px;}

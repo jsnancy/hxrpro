@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/shopcart.css">
+    <link rel="stylesheet" href="./css/myCar.css">
+    <script src="./js/jquery.1.12.4.min.js"></script>
+    <script src="./js/vue.js"></script>
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <!-- 头部 -->
+        <div class="header">
+            <div class="over">
+                <div class="over-bg clearfix">
+                    <div class="over-welcome">嗨，欢迎来到<span class="over-red">U袋网</span></div>
+                    <div class="over-left" v-for="item in left">
+                        <a :href="item.url" class="txe">{{item.text}}</a>
+                    </div>
+                    <div class="over-right" v-for="(item,index) in right" >
+                        <a :href="item.url" :class="{'active':index==4}" class="txe">{{item.text}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="search">
+                <div class="con1 clearfix">
+                    <h1 class="logo fl">
+                            U袋网
+                        <a href="index.html"></a>
+                    </h1>
+                    <div class="inp fl">
+                        个人中心
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- 主体 -->
+                <div class="wrapper-box" id="box">
+                    <div class="wrapper-title">购物车</div>
+                    <!-- 商品信息表格 -->
+                    <div class="box">
+                        <table class="wrapper-content">
+                            <thead>
+                                <tr>
+                                    <td class="wrapper-content-choose">
+                                        <input type="checkbox" @click='chooseAll' id="demo" :checked='flag'>
+                                        <label for='demo'>
+                                            <strong>全选</strong>
+                                        </label>
+                                    </td>
+                                    <td class="wrapper-content-info">
+                                        <span>商品信息</span>
+                                    </td>
+                                    <td class="wrapper-content-price">
+                                        单价
+                                    </td>
+                                    <td class="wrapper-content-amount">
+                                        数量
+                                    </td>
+                                    <td class="wrapper-content-nowprice">
+                                        现价
+                                    </td>
+                                    <td class="wrapper-content-handle">
+                                        操作
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody v-for='(item,index) in goodsDetail'>
+                                <tr>
+                                    <td class="wrapper-content-pic">
+                                        <input type="checkbox" :checked='item.infiction' :id="item.id" :key='index' @click='chooseTheBtn(index)'>
+                                        <label :for="item.id"><img :src="item.imgUrl" alt="图片出错了"></label>
+                                    </td>
+                                    <td class="wrapper-content-details">
+                                        <div class="detail">{{item.description}}</div>
+                                        <div class="size">
+                                            <span>颜色分类：{{item.kinds}}</span>
+                                            <span>尺码：{{item.size}}</span>
+                                        </div>
+                                    </td>
+                                    <td class="wrapper-content-singleprice">
+                                        <span>￥{{item.price|filterone}}</span>
+                                    </td>
+                                    <td class="wrapper-content-change">
+                                        <input type="button" value="-" @click='clickMinus(index)'>
+                                        <input type="text" :value='item.amounts' maxlength="2" v-model="item.amounts">
+                                        <input type="button" value="+" @click='clickPlus(index)'>
+                                    </td>
+                                    <td class="wrapper-content-nowsingleprice">
+                                        <span>￥{{item.nowPrice|filterone}}</span>
+                                    </td>
+                                    <td class="wrapper-content-del">
+                                        <span @click='deleteThis(index)'>删除</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+    
+                    <!-- 全选 删除 -->
+                    <div class="select-all">
+                        <input type="checkbox" class="select-all-box" id="demoone" @click='chooseAll' :checked='flag'>
+                        <label for="demoone">
+                            <span class="all">全选</span>
+                        </label>
+                        <span class="selected">已选商品 {{sum}} 件</span>
+                        <span class="total">合计(不含运费)</span>
+                        <span class="sympol">￥</span>
+                        <span class="number">{{totalPrice|filterone}}</span>
+                        <input type="button" value="提交订单" class="submitTo" style="border: none;">
+                    </div>
+                </div>
+    <div class="footer">
+            <div class="tags">
+                <div class="tags-img">
+                    <div><img src="./img/footer_1.gif"></div>
+                    <div><img src="./img/footer_2.gif"></div>
+                    <div><img src="./img/footer_3.gif"></div>
+                    <div><img src="./img/footer_4.gif"></div>
+                </div>
+            </div>
+            <div class="links">
+                <div class="one1">
+                    <h2>U袋网</h2>
+                    <div class="links-one" v-for="item in one">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="two1">
+                    <h2>服务中心</h2>
+                    <div class="links-two" v-for="item in two">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>
+                </div>
+                <div class="three1">
+                    <h2>新手上路</h2>
+                    <div class="links-three" v-for="item in three">
+                        <a :href="item.url">{{item.text}}</a>
+                    </div>  
+                </div>
+            </div>
+            <div class="copy">
+                <div class="copy-1" v-for="item in copy">
+                    <a :href="item.url">{{item.text}}</a>
+                </div>
+            </div>
+            <div class="copy-2">
+                <div>© 2005-2017 U袋网 版权所有，并保留所有权利</div>
+                <div>ICP备案证书号：闽ICP备16015525号-2    福建省宁德市福鼎市南下村小区（锦昌阁）1栋1梯602室    Tel: 18650406668    E-mail: 18650406668@qq.com</div>
+            </div>
+        </div> 
+    </div>
+    
+</div>
+
+</div>
+</body>
+</html>
+<script src="./js/pagejs/myCar.js"></script>

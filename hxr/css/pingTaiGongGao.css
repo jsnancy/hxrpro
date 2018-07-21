@@ -1,0 +1,32 @@
+@charset "utf-8";
+        /* main */
+        .main{width: 1180px;margin: 0 auto;margin-top: 40px;}
+        /* 平台公告 */
+        .top{height: 31px;width: 1180px;border-bottom: 1px solid #b31e22;}
+        .top .pp{cursor: pointer;}
+        .top div{height: 31px;width: 150px;background: #b31e22;line-height: 31px;text-align: center;font-size: 14px;color: #fff;}
+        /* 底部内容 */
+        .bottom{width: 1180px;margin-top: 10px;}
+        /* 新闻列表 */
+        .bottom .left{width: 400px;}
+        .bottom .left ul{width: 400px;height: 645px;}
+        .bottom .left ul li{cursor: pointer;width: 400px;height: 32px;line-height: 32px;padding-left: 13px;box-sizing: border-box;font-size: 14px;color: #333333;}
+        .bottom .left ul li a{display: block;width: 380px;height: 32px;overflow: hidden;color: #333;font-size: 14px;text-overflow:ellipsis;white-space: nowrap;}
+        .bottom .left ul li:nth-child(2n+1){background:#fff0f0; }
+        .bottom .left ul li:first-child{background:#b31e22;color: #fff; }
+        .bottom .left ul li:first-child a{color: #fff; }
+        #left ul li:hover{box-shadow: 0 0 10px #bbb;border-radius: 3px;background: #fff;color: #000;}
+        #left ul li:hover a{color: #000;}
+        /* .bottom .left ul li:hover{} */
+        /* 新闻详情 */
+        .right{width: 740px;height: 700px;border: 1px solid #bbb;padding: 0 20px;box-sizing: border-box;color: #333;font-size: 13px;}
+        .right .tt{width: 700px;height: 82px;border-bottom: 1px solid #bbb;}
+        .right .tt .title{width: 700px;height: 55px;line-height: 55px;text-align: center;font-size: 16px;overflow: hidden;}
+        .right .tt .time{width: 700px;height: 24px;line-height: 24px;text-align: right;font-size: 13px;color: #666666;}
+        .right .cont p{line-height: 24px;text-indent: 2em;margin-top: 20px;margin-bottom: 20px;}
+        /* 分页1 */
+        #demo0 {text-align: center;}
+        #demo0 .layui-laypage a{height: 36px;line-height: 36px;margin-right: 10px;}
+        #demo0 .layui-laypage span{height: 36px;line-height: 36px;margin-right: 10px;}
+        #demo0 .layui-laypage a:hover{color:#b31e22; }
+        #demo0 .layui-layui-box{margin: 0 auto;}
